@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__navigation {
+        @include container(true);
+
+        height: rem(138px);
+
+        padding-top: rem(29px);
+        padding-bottom: rem(25px);
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo-area {
+        @include column(9);
+
+        padding-left: 0;
+    }
+
+    &__actions-area {
+        @include column(3);
+    }
+}

@@ -1,0 +1,33 @@
+// Миксин блока
+@mixin offset-covering($element-selector: 'offset__element') {
+    @include -offset-covering-base();
+
+    .#{$element-selector} {
+        @include -offset-covering-element();
+    }
+}
+
+// Миксины, из которых собирается блок и его составляющие
+@mixin -offset-covering-base() {
+    position: relative;
+    left: 50%;
+
+    width: $content-width-max;
+    margin-left: -($content-width-max / 2);
+
+    display: flex;
+
+    overflow: hidden;
+}
+
+@mixin -offset-covering-element() {
+    display: flex;
+
+    &:first-child:first-child,
+    &:first-child:not(:last-child) {
+        justify-content: flex-end;
+    }
+    &:last-child:not(:first-child) {
+        justify-content: flex-start;
+    }
+}

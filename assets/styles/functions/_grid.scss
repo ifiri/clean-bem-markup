@@ -1,0 +1,66 @@
+// Делит число надвое
+@function half-from($value) {
+    @return $value / 2;
+}
+
+// Отдает разницу между двумя точками, деленную на два
+@function get-difference-between($min: $content-width, $max: $content-width-max) {
+    @if unit($min) != 'px' {
+        $min: px($min);
+    }
+
+    @if unit($max) != 'px' {
+        $max: px($max);
+    }
+
+    @return half-from($max - $min);
+}
+
+// Отдает ширину колонки относительно $container-width
+@function get-column-width-absolute($index, $container-width: $content-width) {
+    $col-width: (100% / 12) * $index;
+
+    $_temp: $container-width;
+
+    // In px / rems
+    $viewport-width: ($_temp / 100) * strip-units($col-width);
+
+    @return $viewport-width;
+}
+
+@function get-column-width-relative($col-index) {
+    @return (100% / 12) * $col-index;
+}
+
+// Добавляет к ширине контента разницу между максимальной шириной и рабочей шириной
+@function get-content-width-with-offset() {
+    // ширина разницы между макс. контейнером и мин. контейнером
+    // деленная на два, чтобы покрыть только одну сторону
+    $offset-width: get-difference-between($content-width, $content-width-max);
+    
+    // вернем нужную с полученной шириной, чтобы новая ширина
+    // покрывала разницу с одной стороны
+    @return $content-width + $offset-width;
+}
+
+// Возвращает значение из $grid-breakpoints по переданному ключу
+@function breakpoint($breakpoint-key, $in-rems: true) {
+    $breakpoint-value: map-get($grid-breakpoints, $breakpoint-key);
+
+    @if $in-rems and unitless($breakpoint-value) != 0 and unit($breakpoint-value) == 'px' {
+        @return rem($breakpoint-value);
+    }
+
+    @return $breakpoint-value;
+}
+
+// Возвращает значение из $container-max-width по переданному ключу
+@function max-width($max-width-key, $in-rems: true) {
+    $max-width-value: map-get($container-max-widths, $max-width-key);
+
+    @if $in-rems and unitless($max-width-value) != 0 and unit($max-width-value) == 'px' {
+        @return rem($max-width-value);
+    }
+
+    @return $max-width-value;
+}

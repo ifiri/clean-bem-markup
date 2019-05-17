@@ -1,0 +1,44 @@
+// Лэйаут для карточек с услугами, 
+// определяет их положение относительно друг друга
+// Данный лэйаут укладывает услуги в "плитку": сперва две широких,
+// потом одна узкая карточка
+.services-tile {
+    &__item {
+        // В данной разметке сервисных карточек необходимо изменить 
+        // направление всех плиток, кроме первой, на определенных разрешениях, 
+        // чтобы клетки чередовались, как положено
+        &.service-card:nth-child(n+2) {
+            @media screen and (min-width: breakpoint(sm)) and (max-width: breakpoint(lg)) {
+                flex-direction: row-reverse;
+
+                .service-card__contentbox {
+                    &:first-child {
+                        @include -pointer-to-left();
+                    }
+
+                    &:last-child {
+                        @include -pointer-to-right();
+                    }
+                }
+            }
+        }
+
+        // Высокие карточки превращаются в широкие на определенных разрешениях
+        &.service-card_tall {
+            float: right;
+
+            @media screen and (min-width: breakpoint(sm)) and (max-width: breakpoint(lg)) {
+                @include -cell-group-size-2w();
+
+                .service-card__contentbox,
+                .service-card__imagebox {
+                    @include -cell-group-element-for-2w();
+                }
+            }
+        }
+
+        &.service-card_wide {
+            float: left;
+        }
+    }
+}

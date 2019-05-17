@@ -1,0 +1,34 @@
+@mixin css-lock($locks-map) {
+    $is-font-size: is-font-size-should-be-locked($locks-map);
+    $is-line-height: is-line-height-should-be-locked($locks-map);
+
+    // Тут мы не можем использовать множитель, т.к. calc() ниже
+    // стремится привести результат к первому попавшемуся числовому типу
+    @if $is-line-height {
+        line-height: map-get($locks-map, line-height-min);
+    }
+
+    @if $is-font-size {
+        font-size: map-get($locks-map, font-size-min);
+    }
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @if $is-line-height {
+            line-height: css-lock(map-get($locks-map, line-height-min), map-get($locks-map, line-height-max));
+        }
+
+        @if $is-font-size {
+            font-size: css-lock(map-get($locks-map, font-size-min), map-get($locks-map, font-size-max));
+        }
+    }
+
+    @media screen and (min-width: breakpoint(xl)) {
+        @if $is-line-height {
+            line-height: map-get($locks-map, line-height-max);
+        }
+
+        @if $is-font-size {
+            font-size: map-get($locks-map, font-size-max);
+        }
+    }
+}

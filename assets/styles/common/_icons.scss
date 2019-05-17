@@ -1,0 +1,6 @@
+// Генерируем масштабы и соотношение иконок на основе списка 
+@each $icon-title, $icon-ratio in $svg-icons-ratio {
+    .icon_#{$icon-title} {
+        @include svg-icon-by($icon-title);
+    }
+}

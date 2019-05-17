@@ -1,0 +1,128 @@
+@mixin comment() {
+    @include -comment-base();
+
+    .comment__header {
+       @include -comment-header();
+    }
+
+    .comment__content {
+        @include -comment-content();
+    }
+
+    .comment__author {
+        @include -comment-author();
+    }
+
+    .comment__time {
+        @include -comment-date();
+    }
+
+    .comment__avatarbox {
+        @include -comment-avatar-wrapper();
+    }
+}
+
+@mixin -comment-base() {
+    position: relative;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include content-before();
+
+        padding-left: rem(95px);
+
+        &::before {
+            $top-position: rem(80px);
+            
+            left: rem(30px);
+            top: $top-position;
+
+            width: rem(2px);
+            height: calc(90% - #{$top-position});
+
+            background-color: $comment-branch-line-color;
+        }
+    }
+}
+
+@mixin -comment-header() {
+    @include content-after(static);
+
+    position: relative;
+
+    min-height: 60px;
+
+    margin-bottom: rem(10px);
+    padding-left: rem(80px);
+    padding-bottom: rem(10px);
+
+    color: $comment-header-color;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        position: static;
+
+        min-height: 0;
+
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+
+    &::after {
+        @include size(rem(40px) rem(5px));
+
+        bottom: 0;
+
+        background-color: currentColor;
+    }
+}
+
+@mixin -comment-content() {
+    line-height: 1.7;
+}
+
+@mixin -comment-author() {
+    display: block;
+
+    font-size: rem(16px);
+    font-weight: normal;
+    color: inherit;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        margin-bottom: rem(16px);
+        
+        display: inline-block;
+
+        font-size: rem(18px);
+    }
+}
+
+@mixin -comment-date() {
+    display: inline-block;
+
+    text-transform: uppercase;
+    vertical-align: baseline;
+
+    font-size: rem(10px);
+    color: $comment-date-color;
+    line-height: 1.25;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        margin-left: rem(10px);
+
+        font-size: rem(12px);
+    }
+}
+
+@mixin -comment-avatar-wrapper() {
+    float: left;
+
+    width: rem(60px);
+    height: rem(60px);
+
+    text-align: center;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include position(absolute, 0 null 0 0);
+
+        z-index: 10;
+    }
+}

@@ -1,0 +1,47 @@
+.entry-card {
+    @include -cell-group-size-3w();
+
+    &__contentbox,
+    &__imagebox {
+        @include -cell-group-element-for-3w();
+    }
+
+    &__imagebox {
+        @include -cell-iconic-base();
+        
+        padding: 0;
+        
+        flex-grow: 1;
+
+        @media screen and (min-width: breakpoint(sm)) and (max-width: breakpoint(xl)) {
+            flex-grow: 0;
+        }
+    }
+
+    &__contentbox {
+        @include -cell-base();
+        @include -pointer-base();
+        @include content-min();
+
+        // На минимальных разрешениях всегда указывает вверх
+        &:first-child {
+            @include -pointer-to-up();
+
+            order: 1;
+
+            @media screen and (min-width: breakpoint(sm)) {
+                @include -pointer-to-right();
+
+                order: 0;
+            }
+        }
+
+        &:last-child {
+            @include -pointer-to-up();
+
+            @media screen and (min-width: breakpoint(sm)) {
+                @include -pointer-to-left();
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+.icon-links {
+    position: relative;
+
+    padding-right: 0;
+    height: rem(40px);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    font-size: 1em;
+    text-align: right;
+
+    &__item {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: em(39px, 14px);
+        }
+    }
+
+    &__link {
+        @include clear-text-decoration();
+
+        position: relative;
+
+        color: $icon-links-color;
+
+        &:hover {
+            color: $icon-links-color-hover;
+        }
+    }
+
+    &__tooltip {
+        @include color-theme-yellow([hover, focus]);
+
+        position: absolute;
+        top: -10px;
+        right: -15px;
+
+        padding: 4px;
+
+        font-size: rem(12px);
+        line-height: 1;
+
+        z-index: 100;
+    }
+}

@@ -1,0 +1,15 @@
+// Создает базовую стилизацию полей ввода, которая должна быть всегда
+@mixin input() {
+    width: 100%;
+    padding: em(11px, 14px) em(22px, 14px); // pixel perfect
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: inherit;
+
+    font-family: $font-family-common;
+    font-size: rem(14px);
+
+    color: currentColor;
+    background-color: $brand-white;
+}

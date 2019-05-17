@@ -1,0 +1,108 @@
+.slider_type_promo {
+    height: $promo-slider-height;
+
+    .slider__wrapper {
+        position: relative;
+        left: 50%;
+
+        overflow: hidden;
+
+        @media screen and (min-width: breakpoint(xs)) {
+            height: auto;
+            width: $promo-slider-slide-width;
+
+            margin-left: -($promo-slider-slide-width / 2);
+        }
+
+        @media screen and (min-width: breakpoint(lg)) {
+            position: absolute;
+
+            max-width: none;
+            width: $content-width-max;
+            
+            margin-left: -($content-width-max / 2);
+        }
+    }
+
+    .slider__inner {
+        @media screen and (min-width: breakpoint(lg)) {
+            @include relative-offset(8, $promo-slider-slide-width, map-get($container-max-widths, lg));
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include relative-offset(9, $promo-slider-slide-width);
+        }
+
+        &.slick-initialized {
+            left: 1px; // нужно пофиксить некорректное смещение, задаваемое самим slick
+        }
+    }
+
+    .slider__arrows {
+        display: none;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            margin-left: auto;
+            display: flex;
+        }
+    }
+
+    .slider__slide {
+        float: left;
+        position: relative;
+
+        pointer-events: none;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            width: auto;
+        }
+    }
+
+    .slider__video {
+        @include column-absolute(3);
+
+        pointer-events: all;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column-push-to(right, 6, absolute);
+        }
+    }
+
+    .slider__overlay {
+        @include container(true);
+        @include position(absolute, 0 0 null 0);
+        
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        align-content: flex-end;
+        justify-content: flex-end;
+
+        pointer-events: none;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            flex-direction: row;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+    }
+
+    // Внешние блоки, зависящие от блока слайдера
+    .contentbox {
+        @include color-theme-yellow([hover, focus]);
+
+        pointer-events: all;
+
+        @media screen and (min-width: breakpoint(xs)) {
+            @include column-absolute(3);
+        }
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column-absolute(6);
+        }
+    }
+}

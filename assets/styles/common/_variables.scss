@@ -1,0 +1,332 @@
+// Common
+$golden: 1.333 !default;
+
+
+// Fonts
+$font-family: 'Montserrat', 'Arial', sans-serif;
+
+$font-size-base-px: 16px;
+
+$font-size-base: 1rem; // ~16px
+$font-size-smaller: 12px;
+$font-size-common: 14px;
+$font-size-larger: 18px;
+
+$font-family-common: 'Montserrat', 'Arial', sans-serif;
+$font-weight-common: normal;
+
+
+// Grid
+$column-count: 12;
+$column-gap-width: 30px;
+
+$content-width-min: 320px;
+$content-width: 1172px;
+$content-width-max: 1900px;
+
+$container-max-widths: (
+  sm: 320px,
+  md: 586px,
+  lg: 879px,
+  xl: 1172px
+);
+
+$grid-breakpoints: (
+    xs: 0px,
+    sm: 586px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+
+// Brand
+$brand-yellow: #ffe400;
+$brand-blue: #2297d8;
+$brand-ocean: #3f729b;
+$brand-gray: #bebebe;
+$brand-darkgray: #363636;
+$brand-white: #ffffff;
+
+
+// Backgrounds
+$background-global: #f5f5f5;
+$background-content: $brand-white;
+
+
+// Headings
+$headings-color: $brand-darkgray;
+$headings-line-height: 1.2;
+
+$h2-font-size: 28px;
+$h3-font-size: 18px;
+$h4-font-size: 18px;
+$h5-font-size: 14px;
+
+
+// Animation
+$transition-time: 100ms;
+$transition-function: ease-in-out;
+
+
+// Links
+$link-color: $brand-blue;
+$link-color-hover: darken($brand-blue, 10%);
+$link-decoration: underline;
+
+
+// Text
+$text-color: #989898;
+$text-color-light: #989898;
+$text-color-dark: $brand-darkgray;
+
+
+// Sprites & Images
+$images-path: '../images/';
+$sprite-svg-path: $images-path + 'sprite.svg';
+
+
+// Icons
+$svg-icons-ratio: (
+    'facebook': 1,
+    'twitter': 1,
+    'basket': 1,
+    'hamburger': 1,
+    'pdf': 0.75 width,
+    'location': 0.775 width,
+    'star': 1,
+    'bolt': 0.6 width,
+    'drop': 0.7 width,
+    'gear': 1,
+    'lamp': 0.68 width,
+    'arrow': 0.8 width,
+    'gears': 1,
+    'search': 1,
+    'reply': 1,
+    'instagram': 1,
+    'pinterest': 1,
+    'google-plus': 1,
+    'map-marker': 0.85 width,
+);
+$svg-icons-sizes: (
+    'facebook': 1.3em,
+    'twitter': 1.4em,
+    'basket': 1.6em,
+    'hamburger': 1.7em,
+    'pinterest': 1.2em,
+    'google-plus': 1.2em,
+);
+
+
+// Color Themes
+$color-themes: (
+    darkgray: (
+        background-color: $brand-darkgray,
+        color: $brand-white,
+
+        _hover: (
+            background-color: lighten($brand-darkgray, 20%),
+            color: $brand-white
+        ),
+        _focus: _hover
+    ),
+
+    darkestgray: (
+        background-color: #333538,
+        color: #fefefe,
+
+        _hover: (
+            background-color: lighten(#333538, 10%),
+            color: #fefefe
+        ),
+        _focus: _hover
+    ),
+
+    ocean: (
+        color: #dde9f5,
+        background-color: $brand-ocean,
+        border-color: $brand-ocean,
+
+        _hover: (
+            color: #dde9f5
+        ),
+        _focus: _hover
+    ),
+
+    blue: (
+        color: $brand-white,
+        background-color: $brand-blue,
+
+        _hover: (
+            color: $brand-white
+        ),
+        _focus: _hover
+    ),
+
+    white: (
+        background-color: $brand-white,
+        color: $brand-darkgray,
+
+        _hover: (
+            background-color: darken($brand-white, 20%),
+            color: $brand-darkgray
+        ),
+        _focus: _hover
+    ),
+
+    yellow: (
+        background-color: $brand-yellow,
+        color: $brand-darkgray,
+
+        _hover: (
+            background-color: lighten($brand-yellow, 20%),
+            color: $brand-darkgray
+        ),
+        _focus: _hover
+    )
+);
+
+
+// Buttons
+$btn-font-size: $font-size-smaller;
+
+
+// Testimonials
+$testimonials-title-color: $brand-darkgray;
+$testimonials-content-color: #a0a0a0;
+$testimonials-content-color-highlighted: #777463;
+$testimonials-background-color: $brand-white;
+$testimonials-background-color-highlighted: #fcf3d3;
+
+
+// Cells
+$cell-header-color: $brand-darkgray;
+$cell-text-color: #989898;
+$cell-height: 293px;
+$cell-padding-vertical: $column-gap-width;
+
+
+// Pointer
+$pointer-arrow-width: 22px;
+$pointer-arrow-height: 12px;
+
+
+// Cart
+$mini-cart-background-color: $brand-white;
+
+
+// Video Tap
+$video-tap-title-font-size: $font-size-smaller;
+
+
+// Project
+$project-description-color: #9b9b9b;
+$project-information-background-color: $brand-white;
+
+
+// Arrows
+$arrows-arrow-color: $brand-gray;
+$arrows-arrow-color-hover: $brand-yellow;
+
+
+// Counter
+$counter-current-font-size: 36px;
+$counter-count-font-size: 24px;
+$counter-base-font-size: 28px;
+
+$counter-current-color-highlight: $brand-white;
+$counter-count-color-highlight: $brand-gray;
+
+
+// Tags
+$tag-label-color: #808387;
+$tag-common-color: $brand-gray;
+
+
+// Socials
+$socials-color: #808387;
+$socials-icon-color-hover: $brand-yellow;
+
+
+// Banner
+$banner-dark-color: $brand-white;
+$banner-light-color: #333538;
+
+
+// Sliders
+$promo-slider-height: 826px;
+$promo-slider-slide-width: 1254px;
+
+$grid-slider-height: $cell-height * 2; // two rows
+$grid-slider-description-color: $text-color-light;
+
+$post-slider-height: $cell-height * 2; // two rows
+
+$slider-dots-color: #989898;
+$slider-dots-color-active: $brand-darkgray;
+$slider-dots-color-bright: #4EACE0;
+$slider-dots-color-bright-active: $brand-white;
+
+
+// Quotes
+$quote-border-color: #e9e9e9;
+
+
+// Comments
+$comment-branch-line-color: #dedede;
+$comment-date-color: #989898;
+$comment-header-color: $brand-darkgray;
+
+
+// Menu
+$menu-links-highlight-color: #dedede;
+$menu-links-link-color: #9b9b9b;
+$menu-links-link-color-hover: $brand-blue;
+
+
+// Advantages
+$advantage-title-color: #707070;
+$advantage-subtitle-color: #a0a0a0;
+$advantage-icon-color: $brand-blue;
+
+
+// Inputs
+$placeholder-text-color: #8d8d8e;
+
+
+// Forms
+$comments-form-fields-background-color: #4f4f4f;
+$comments-form-fields-border-color: #4f4f4f;
+$comments-form-fields-background-color-hover: #333538;
+$comments-form-fields-text-color-hover: $brand-white;
+$comments-form-background-color: #333538;
+$comments-form-title-color: $brand-white;
+$comments-form-subtitle-color: #989898;
+
+$subscribe-form-fields-text-color: #59a9d6;
+$subscribe-form-signup-text-color-hover: #8bcffb;
+
+
+// Header
+$header-common-background-color: #333538;
+$header-title-color: $brand-darkgray;
+$header-title-background-color: $brand-white;
+
+
+// Icon Links
+$icon-links-color: $brand-white;
+$icon-links-color-hover: $brand-yellow;
+
+
+// Post Preview
+$post-preview-title-color: #333538;
+$post-preview-meta-color: #333538;
+$post-preview-meta-color-hover: darken(#333538, 20%);
+
+$post-preview-inslide-title-color: $brand-white;
+$post-preview-inslide-meta-color: #8bcffb;
+$post-preview-inslide-meta-color-hover: $brand-white;
+
+
+// Rating
+$rating-star-color: $brand-yellow;

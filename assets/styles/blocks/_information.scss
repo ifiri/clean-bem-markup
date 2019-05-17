@@ -1,0 +1,12 @@
+.information {
+    @include column(12, false);
+
+    display: block;
+
+    @media screen and (min-width: breakpoint(xl)) {
+        @include column(6, false);
+
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,21 @@
+.proposal {
+    @include -cell-iconic-base();
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(3, false);
+    }
+
+    &__title {
+        @include -cell-iconic-title();
+    }
+
+    &__icon {
+        @include -cell-iconic-icon();
+    }
+
+    &:hover {
+        .proposal__icon {
+            transform: scale(1.25);
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/main.js"
+      ],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "main": true
+    }
+  },
+  "config": {
+    "paths": {
+      "styles": "styles",
+      "scripts": "scripts",
+      "fonts": "fonts",
+      "images": "images",
+      "templates": "templates",
+      "sprites": "images/spritesmith"
+    },
+    "sprites": {
+      "png": {
+        "imagename": "sprite.png",
+        "cssname": "sprites/_sprite-png.scss"
+      },
+      "svg": {
+        "imagename": "sprite.svg",
+        "cssname": "sprites/_sprite-svg.scss"
+      }
+    }
+  }
+}

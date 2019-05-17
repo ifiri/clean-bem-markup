@@ -1,0 +1,14 @@
+div.slider.slider_type_entries(data-dots="true", data-dotsClass="slider__dots slider__dots_bright slider__dots_dir_left", data-adaptiveHeight="true")
+    div.slider__inner
+        - var n = 0;
+        - var slides = 3;
+        while n < slides
+            - n++
+            article.slider__slide.post-preview.post-preview_type_inslide
+                time.time.post-preview__time 12 february, 2015
+                h3.post-preview__title
+                    | Project Design and Engineering Services
+
+                footer.post-preview__meta
+                    a.post-preview__comment-count(href="#")
+                        | 23 comments

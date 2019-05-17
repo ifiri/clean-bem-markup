@@ -1,0 +1,27 @@
+.sidebar {
+    @include content-min();
+
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(6, false);
+    }
+
+    @media screen and (min-width: breakpoint(lg)) {
+        @include column-absolute(3, false);
+    }
+
+    // Специфизируем поведение формы и баннера в сайдбаре
+    .banner {
+        @media screen and (min-width: breakpoint(sm)) and (max-width: breakpoint(lg)) {
+            width: 50%;
+        }
+    }
+
+    .form_type_subscribe {
+        @media screen and (min-width: breakpoint(sm)) and (max-width: breakpoint(lg)) {
+            order: -1;
+        }
+    }
+}

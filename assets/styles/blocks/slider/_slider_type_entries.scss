@@ -1,0 +1,35 @@
+.slider_type_entries {
+    position: static;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    .slider__dots {
+        position: absolute;
+
+        right: rem($column-gap-width);
+        bottom: rem(30px);
+        left: rem($column-gap-width);
+
+        z-index: 99;
+
+        // Для индикаторов, которые должны быть прижаты к левому краю
+        &_dir_left {
+            left: rem($column-gap-width);
+            right: auto;
+        }
+    }
+    
+    .slider__wrapper {
+        @include column(12, false);
+    }
+
+    .slider__inner {
+        height: 100%;
+    }
+
+    .slider__slide {
+        @include column-absolute(3);
+    }
+}

@@ -1,0 +1,7 @@
+.testimonial_size_small {
+    width: 100%;
+        
+    @media screen and (min-width: breakpoint(xl)) {
+        width: 50%;
+    }
+}

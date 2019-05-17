@@ -1,0 +1,71 @@
+@mixin cell() {
+    @include -cell-base();
+
+    .cell__header {
+        @include -cell-header();
+    }
+
+    .cell__title {
+        @include -cell-title();
+    }
+
+    .cell__content {
+        @include -cell-content();
+    }
+
+    .cell__btn {
+        @include -cell-button();
+    }
+}
+
+@mixin -cell-base() {
+    @include column-absolute(3);
+    @include cell-paddings-vertical();
+
+    min-height: $cell-height;
+
+    color: $cell-text-color;
+    border-color: $brand-white;
+
+    background-color: $brand-white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin -cell-header() {
+    @include content-after(static, inline-block);
+
+    margin-bottom: em(10px, 14px);
+
+    color: $cell-header-color;
+
+    &::after {
+        @include size(em(40px, 14px) em(5px, 14px));
+        margin-top: em(15px, 14px);
+
+        background-color: currentColor;
+    }
+}
+
+@mixin -cell-title() {
+    color: inherit;
+    line-height: 1;
+}
+
+@mixin -cell-content() {
+    color: inherit;
+
+    line-height: 1.6;
+    margin-bottom: 0;
+    
+    pointer-events: all;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@mixin -cell-button() {
+    margin-top: rem(20px);
+}

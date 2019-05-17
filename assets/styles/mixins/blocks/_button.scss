@@ -1,0 +1,43 @@
+// Миксин блока
+@mixin button($size: medium) {
+    @include -button-base();
+
+    @if $size == large {
+        @include -button-size-large();
+    }
+
+    &__inner {
+        @include -button-inner();
+    }
+}
+
+// Составные миксины блока
+@mixin -button-base() {
+    @include clear-text-decoration();
+    @include transition(background-color);
+
+    padding-top: em(11px, $btn-font-size);
+    padding-right: em(15px, $btn-font-size);
+    padding-bottom: em(11px, $btn-font-size);
+    padding-left: em(15px, $btn-font-size);
+
+    border: 1px solid transparent;
+
+    display: inline-block;
+
+    text-transform: uppercase;
+    font-size: rem($btn-font-size);
+    font-family: $font-family-common;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+@mixin -button-inner() {
+    position: relative; // IE hack
+}
+
+// Миксин модификатора
+@mixin -button-size-large() {
+    padding: rem(14px) rem(24px);
+}

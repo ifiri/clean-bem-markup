@@ -1,0 +1,70 @@
+.project {
+    position: relative;
+
+    &__header {
+        @include -cell-header();
+    }
+
+    &__title {
+        @include -cell-title();
+
+        text-transform: none;
+    }
+
+    &__btn {
+        @include -cell-button();
+        @include -button-size-large();
+
+        @include color-theme-yellow();
+
+        position: relative;
+        
+        @media screen and (min-width: breakpoint(lg)) {
+            position: absolute;
+
+            bottom: $cell-padding-vertical;
+        }
+    }
+
+    &__description {
+        @include -cell-content();
+
+        font-size: rem(14px);
+        color: $project-description-color;
+    }
+
+    &__information {
+        @include -cell-base();
+
+        position: relative;
+
+        width: 100%;
+        padding-bottom: rem(90px);
+
+        pointer-events: all;
+
+        background-color: $project-information-background-color;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column-absolute(3);
+        }
+    }
+    
+    &__imagebox {
+        @include -cell-base();
+        
+        padding: 0;
+        
+        width: 100%;
+
+        text-align: center;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column-absolute(6, false);
+        }
+    }
+
+    &__image {
+        max-width: 100%;
+    }
+}

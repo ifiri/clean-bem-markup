@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    @include clearfix();
+}
+
+.column {
+    @include column(12);
+}
+
+@for $i from 1 through $column-count {
+    .column_width_#{$i} {
+        @include column($i, false);
+        @include column-gap();
+
+        &.column_type_covering {
+            @include column-covering($i, false);
+        }
+
+        &.column_type_absolute {
+            @include column-absolute($i, false);
+        }
+    }
+}

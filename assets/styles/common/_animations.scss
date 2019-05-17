@@ -1,0 +1,55 @@
+@keyframes aside-show {
+    0% {
+        right: -100vw;
+        opacity: 0;
+    }
+
+    100% {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes aside-hide {
+    0% {
+        right: 0;
+        opacity: 1;
+    }
+
+    100% {
+        right: -100vw;
+        opacity: 0;
+    }
+}
+
+@keyframes cart-show {
+    0% {
+        top: -999px;
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes cart-hide {
+    0% {
+        top: 0;
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        top: -999px;
+        opacity: 0;
+    }
+}

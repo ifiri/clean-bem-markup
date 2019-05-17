@@ -1,0 +1,30 @@
+// Глобальный блок, добавляется к body, призван отличать страницы типа home от страниц типа page
+// аналогия - как это сделано в wordpress.
+// Сам по себе ничего не меняет, изменения касаются лишь вложенных блоков, если есть сайдбар
+.page {
+    &_sidebar {
+        .content {
+            flex-direction: column;
+            align-items: center;
+
+            @media screen and (min-width: breakpoint(lg)) {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .main {
+            margin: 0;
+
+            @include column(12, false);
+
+            @media screen and (min-width: breakpoint(lg)) {
+                @include column-absolute(6, false);
+            }
+
+            @media screen and (min-width: breakpoint(xl)) {
+                @include column-absolute(9, false);
+            }
+        }
+    }
+}

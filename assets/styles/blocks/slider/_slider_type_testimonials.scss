@@ -1,0 +1,45 @@
+.slider_type_testimonials {
+    width: 100%;
+
+    @media screen and (min-width: breakpoint(xl)) {
+        width: 50%;
+    }
+    
+    .slider__dots {
+        @include position(absolute, null 0 rem(18px) 0);
+        
+        z-index: 99;
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include cell-push-to(top, 1); // margin-top on 1 cell
+        }
+    }
+
+    .slider__wrapper {
+        @include column(12, false);
+    }
+
+    .slider__inner {
+        height: 100%;
+    }
+
+    .slider__slide {
+        @include content-min();
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        @media screen and (min-width: breakpoint(sm)) {
+            @include column-absolute(6, false);
+        }
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column-absolute(9, false);
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include column-absolute(6, false);
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.about-company {
+    @include -cell-base();
+    @include content-min();
+
+    float: left;
+    
+    color: $brand-darkgray;
+    background-image: url($images-path + '/content/placeholders/586x293.jpg');
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(6);
+    }
+
+    &__header {
+        @include -cell-header();
+    }
+
+    &__title {
+        @include -cell-title();
+    }
+
+    &__content {
+        @include -cell-content();
+    }
+
+    &__btn {
+        @include -cell-button();
+        @include -button-size-large();
+        @include color-theme-darkgray();
+    }
+}

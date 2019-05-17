@@ -1,0 +1,138 @@
+.post {
+    position: relative;
+    width: 100%;
+
+    &__title {
+        @include -cell-title();
+
+        padding-bottom: rem(10px);
+        margin-bottom: rem(10px);
+
+        overflow: hidden;
+
+        font-size: rem(24px);
+        font-weight: normal;
+        text-transform: uppercase;
+        line-height: 1.2;
+
+        color: get-color-theme-property-for(darkestgray, color);
+
+        &::after {
+            @include size(rem(40px) rem(5px));
+
+            content: "";
+
+            margin-top: rem(10px);
+            display: block;
+
+            background-color: currentColor;
+        }
+
+        @media screen and (min-width: breakpoint(sm)) {
+            font-size: rem(28px);
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            font-size: rem(36px);
+        }
+    }
+
+    &__header {
+        @include -cell-base();
+
+        @include color-theme-darkestgray([hover, focus]);
+
+        padding-left: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (min-width: breakpoint(sm)) {
+            @include column-absolute(6, false);
+        }
+
+        @media screen and (min-width: breakpoint(lg)) {
+            padding-right: 0;
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include column-absolute(9, false);
+        }
+    }
+
+    &__headerbox {
+        @include -offset-standard-direction-left();
+
+        @include color-theme-darkestgray([hover, focus]);
+
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__socials {
+        margin-top: auto;
+    }
+
+    &__gallery {
+        @include -offset-standard-direction-left();
+    }
+
+    &__imagebox {
+        @include -cell-base();
+
+        padding: 0;
+                
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &__content {
+        @include column(12);
+
+        margin-top: em(30px, 14px);
+        margin-bottom: em(50px, 14px);
+
+        @include css-lock((
+            'line-height-min': 1.333em,
+            'line-height-max': 1.5em,
+            'font-size-min': 1rem,
+            'font-size-max': 1.2rem,
+        ));
+
+        // Стилизуем заголовки внутри контента .post
+        // Не используем классы, чтобы можно было просто юзать wysiwyg
+        h3, h4 {
+            @include content-after(static);
+
+            &::after {
+                margin-top: rem(15px);
+                margin-bottom: rem(15px);
+
+                @include size(rem(40px) rem(5px));
+
+                background-color: currentColor;
+            }
+        }
+    }
+
+    &__meta {
+        @include column(12);
+
+        margin-top: em(50px, 14px);
+        margin-bottom: em(50px, 14px);
+    }
+
+    &__tags {
+        // ...
+    }
+
+    &__time {
+        // ...
+    }
+}

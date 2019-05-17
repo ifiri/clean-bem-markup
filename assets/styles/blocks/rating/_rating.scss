@@ -1,0 +1,11 @@
+.rating {
+    display: block;
+
+    &__icon {
+        display: inline-block;
+
+        font-size: em(16px);
+
+        color: $rating-star-color;
+    }
+}

@@ -1,0 +1,55 @@
+.form {
+    &__header {
+        margin-bottom: rem(30px);
+    }
+
+    &__footer {
+        margin-top: rem(30px);
+
+        text-align: right;
+    }
+
+    &__field {
+        width: 100%;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        background-color: transparent;
+    }
+
+    &__field-container {
+        position: relative;
+        width: 100%;
+
+        display: block;
+
+        &_big {
+            height: 100%;
+
+            textarea.form__field {
+                height: 100%;
+            }
+        }
+    }
+
+    &__column {
+        padding-bottom: rem(15px);
+
+        @media screen and (min-width: breakpoint(sm)) {
+            padding-right: rem(15px);
+            padding-left: rem(15px);
+
+            padding-bottom: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+            padding-bottom: 0;
+        }
+        
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+}

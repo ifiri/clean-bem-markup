@@ -1,0 +1,51 @@
+.slider_type_projects {
+    @media screen and (min-width: breakpoint(xl)) {
+        height: 100%;
+    }
+
+    .slider__dots {
+        @include position(absolute, null 0 rem(30px) 0);
+
+        z-index: 99;
+    }
+
+    .slider__wrapper {
+        @include column(12, false);
+    }
+
+    .slider__inner {
+        height: 100%;
+    }
+
+    .slider__slide {
+        @include content-min();
+
+        min-height: $cell-height * 2; // слайдер высотой в 2 ячейки
+
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (min-width: breakpoint(sm)) {
+            @include column-absolute(6, false);
+        }
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column-absolute(12, false);
+            
+            flex-direction: row;
+        }
+    }
+
+    .slider__arrows {
+        display: none;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column-absolute(3, false);
+            @include position(absolute, null 0 0 null);
+
+            display: flex;
+
+            z-index: 100;
+        }
+    }
+}

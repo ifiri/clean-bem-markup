@@ -1,0 +1,47 @@
+section.slider.slider_type_promo(data-slidesToShow="2", data-arrows="true", data-variableWidth="true", data-adaptiveHeight="true")
+    div.slider__wrapper
+        div.slider__inner
+            div.slider__slide
+                img.image(src="dist/images/content/placeholders/1254x826-light.jpg", alt="")
+
+            div.slider__slide
+                img.image(src="dist/images/content/placeholders/1254x826.jpg", alt="")
+
+            div.slider__slide
+                img.image(src="dist/images/content/placeholders/1254x826-light.jpg", alt="")
+            
+            div.slider__slide
+                img.image(src="dist/images/content/placeholders/1254x826.jpg", alt="")
+        
+
+
+        div.slider__overlay
+            article.contentbox
+                header.contentbox__header
+                    h2.contentbox__title
+                        | BUILDING THE <br> WORLD AROUND US
+                div.contentbox__content
+                    p
+                        | Still other clients have reserved for capital improvement projects and will work directly with our Design and Engineering team.
+                    a.btn.contentbox__btn(href="#")
+                        | Read More
+
+
+
+            div.arrows.slider__arrows
+                svg.arrows__arrow.arrows__arrow_next(title="Next")
+                    use(xlink:href="#icon-arrow")
+
+                div.counter
+                    span.counter__current 01
+                    span.counter__count ...
+
+                svg.arrows__arrow.arrows__arrow_prev(title="Previous")
+                    use(xlink:href="#icon-arrow")
+
+            //- Момент: slider__video - элемент, характерный только для slider_type_promo
+            //- Является ли это корректным в рамках БЭМ, ведь может создаться впечатление,
+            //- что у каждого слайдера есть видео? И если не является, то как лучше сделать?
+            a.proposal.proposal_theme_blue.slider__video(href="#")
+                span.icon.icon_play.proposal__icon
+                span.proposal__title Company Video

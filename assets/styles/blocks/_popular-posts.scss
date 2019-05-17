@@ -1,0 +1,38 @@
+.popular-posts {
+    @include -cell-base();
+    @include content-min();
+    @include color-theme-blue();
+
+    position: relative;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(3, false);
+    }
+
+    &__header {
+        @include -cell-header();
+        @include cell-padding-top();
+        @include column-gap();
+        
+        padding-bottom: 0;
+        color: inherit;
+    }
+
+    &__title {
+        @include -cell-title();
+
+        min-height: 2em;
+    }
+
+    &__content {
+        @include -cell-content();
+
+        padding-bottom: rem(50px);
+
+        flex-grow: 10;
+    }
+}

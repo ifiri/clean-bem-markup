@@ -1,0 +1,18 @@
+.slider_type_posts {
+    @include container(true);
+    
+    height: auto;
+
+    overflow: visible;
+
+    .slider__wrapper {
+        overflow: hidden;
+    }
+
+    .slider__slide {
+        position: relative;
+        float: left;
+
+        pointer-events: auto;
+    }
+}

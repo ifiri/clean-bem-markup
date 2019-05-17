@@ -1,0 +1,24 @@
+// Родительская ветка комментариев
+.comments__branch_ancestor {
+    > .comments__list {
+        margin-left: rem(15px);
+
+        @media screen and (min-width: breakpoint(sm)) {
+            margin-left: rem(30px);
+        }
+
+        @media screen and (min-width: breakpoint(xs)) and (max-width: breakpoint(sm)) {
+            @include content-before();
+            
+            &::before {
+                left: rem(-15px);
+                top: 0;
+
+                width: rem(2px);
+                height: 100%;
+
+                background-color: $comment-branch-line-color;
+            }
+        }
+    }
+}

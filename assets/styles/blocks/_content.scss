@@ -1,0 +1,8 @@
+.content {
+    display: flex;
+    justify-content: center;
+    
+    max-width: $content-width-max;
+
+    overflow: hidden;
+}

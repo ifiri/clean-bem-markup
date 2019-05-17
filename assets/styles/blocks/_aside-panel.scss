@@ -1,0 +1,61 @@
+.aside-panel {
+    @include color-theme-white([hover, focus]);
+
+    position: absolute;
+    top: 0;
+    right: -100vw;
+    
+    min-height: 100vh;
+    height: 100%;
+    width: rem(310px);
+    padding: rem(60px) rem(30px);
+
+    opacity: 0;
+
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.3);
+
+    animation-duration: 200ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+
+    will-change: opacity, right;
+    contain: content;
+
+    z-index: 9500;
+
+    &[data-state="visible"] {
+        animation-name: aside-show;
+    }
+
+    &[data-state="invisible"] {
+        animation-name: aside-hide;
+    }
+
+    &__title {
+        margin-bottom: rem(25px);
+
+        font-size: rem(18px);
+        text-transform: uppercase;
+
+        line-height: rem(28px);
+    }
+
+    &__close {
+        float: right;
+
+        font-size: rem(28px);
+        line-height: 0;
+        color: inherit;
+
+        &:hover {
+            color: #a0a0a0;
+        }
+    }
+
+    // Стили для формы внутри сайд-панели
+    .form_type_search {
+        margin-top: rem(80px);
+
+        color: #a0a0a0;
+    }
+}

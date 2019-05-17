@@ -1,0 +1,90 @@
+.slider_type_gallery {
+    height: auto;
+
+    justify-content: flex-end;
+
+    .slider__wrapper {
+        @include content-before();
+
+        position: relative;
+
+        width: 100%;
+
+        overflow: visible;
+
+        &::before {
+            top: 0;
+            bottom: 0;
+            left: 0;
+
+            width: get-difference-between($content-width, $content-width-max);
+
+            background-color: rgba($brand-white, 0.35);
+
+            z-index: 10;
+        }
+    }
+
+    .slider__inner {
+        @include uncover-offset(sm, 2);
+        @include clearfix();
+
+        height: 100%;
+
+        @media screen and (min-width: breakpoint(sm)) {
+            @include difference-offset(6);
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include difference-offset(9);
+        }
+
+        &.slick-initialized {
+            width: max-width(sm, false) * 2; // у слайдера 2 слайда, нужно место
+
+            @media screen and (min-width: breakpoint(sm)) {
+                @include column-absolute(12, false);
+            }
+
+            @media screen and (min-width: breakpoint(xl)) {
+                width: auto;
+            }
+        }
+    }
+
+    .slider__slide {
+        @include content-min();
+
+        height: $cell-height;
+
+        display: flex;
+
+        @media screen and (min-width: breakpoint(sm)) {
+            @include column-absolute(6, false);
+        }
+
+        @media screen and (min-width: breakpoint(lg)) {
+            height: $cell-height * 2;
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include column-absolute(9, false);
+        }
+    }
+
+    .slider__arrows {
+        @include column-absolute(3, false);
+
+        position: absolute;
+        top: 0;
+        left: get-difference-between();
+
+        display: none; // скрываем стрелки слайдера на мобильных
+
+        z-index: 100;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            display: flex; // показываем на десктопе и таблетах
+        }
+    }
+}

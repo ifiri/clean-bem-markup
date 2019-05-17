@@ -1,0 +1,63 @@
+section.slider.slider_type_services(data-arrows="true", data-adaptiveHeight="true")
+    div.slider__wrapper
+        div.slider__sidebar
+            div.contentbox
+                header.contentbox__header
+                    h2.contentbox__title
+                        | Our <br> Services
+                p.contentbox__content
+                    | Our mission is to provide the highest level of service for our client-partners from concept through construction.
+
+
+            div.arrows.slider__arrows
+                svg.arrows__arrow.arrows__arrow_next(title="Next")
+                    use(xlink:href="#icon-arrow")
+
+                div.counter
+                    span.counter__current 01
+                    span.counter__count ...
+
+                svg.arrows__arrow.arrows__arrow_prev(title="Previous")
+                    use(xlink:href="#icon-arrow")
+
+
+        div.slider__inner
+            - var n = 0;
+            - var slides = 2;
+            while n < slides
+                - n++
+                div.slider__slide.services-tile
+                    article.services-tile__item.service-card.service-card_wide
+                        div.service-card__imagebox
+                            img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")
+
+                        div.service-card__contentbox
+                            header.service-card__header
+                                h3.service-card__title
+                                    | General <br> Contracting
+                            p.service-card__content
+                                | This allows the Design and Engineering team to originate drawings, specifications, structural calculations, details and scopes of work that deliver exactly what the client had intended to achieve.
+
+
+                    article.services-tile__item.service-card.service-card_tall
+                        div.service-card__imagebox
+                            img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")
+
+                        div.service-card__contentbox
+                            header.service-card__header
+                                h3.service-card__title
+                                    | Capital <br> improvements
+                            p.service-card__content
+                                | This results in scope creep and slippage of the schedule that ultimately result in additional costs to the owner.
+
+
+                    article.services-tile__item.service-card.service-card_wide
+                        div.service-card__contentbox
+                            header.service-card__header
+                                h3.service-card__title
+                                    | Project design <br> and engineering
+                            p.service-card__content
+                                | Through Stage-Gate, Design and Engineering methodology, DMCS ensure client-partners realize clearly defined project objective to achieve intended results.
+
+                        div.service-card__imagebox
+                            img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")

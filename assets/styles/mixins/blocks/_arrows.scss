@@ -1,0 +1,47 @@
+@mixin arrows() {
+    @include -arrows-base();
+
+    .arrows__arrow {
+        @include -arrows-arrow();
+    }
+
+    .arrows__arrow_prev {
+        @include -arrows-arrow-prev();
+    }
+}
+
+@mixin -arrows-base() {
+    @include -cell-base();
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    color: inherit;
+
+    height: 0; // IE flexbox fix
+}
+
+@mixin -arrows-arrow() {
+    @include icon();
+    @include svg-icon-by('arrow');
+
+    @include transition(color);
+
+    margin-top: em(15px, 30px);
+    margin-bottom: em(25px, 30px);
+
+    font-size: em(30px, 14px);
+    color: $arrows-arrow-color;
+
+    cursor: pointer;
+
+    &:hover {
+        color: $arrows-arrow-color-hover;
+    }
+}
+
+@mixin -arrows-arrow-prev() {
+    transform: rotate(180deg);
+}

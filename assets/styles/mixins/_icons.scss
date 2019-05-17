@@ -1,0 +1,57 @@
+// @mixin generate-icons() {
+//   $counter: 1;
+//   @each $sprite in $sprites-active {
+//     $sprite-name: nth($sprite, 10);
+//     $sprite-hover: nth($sprites-hover, $counter);
+
+//     .icon-#{$sprite-name} {
+//       background-image: url($rounds-path);
+//       @include sprite-height($sprite);
+//       @include sprite-width($sprite);
+//       @include sprite-position($sprite);
+//     }
+//     a:hover .icon-#{$sprite-name} {
+//       @include sprite-position($sprite-hover);
+//     }
+
+//     $counter: $counter + 1;
+//   }
+// }
+
+@mixin svg-icon-by($icon-title) {
+    $ratio-map: $svg-icons-ratio;
+    $font-sizes-map: $svg-icons-sizes;
+
+    // Получим соотношение сторон иконки
+    $icon-ratio: map-get($ratio-map, $icon-title);
+
+    $ratio-value: nth($icon-ratio, 1);
+    $ratio-mode: width;
+
+    @if length($icon-ratio) == 2 {
+        $ratio-mode: nth($icon-ratio, 2);
+    }
+
+    @if $ratio-value != 1 {
+        @if $ratio-mode == width {
+            width: 1em * $ratio-value;
+            height: 1em;
+        } @else if $ratio-mode == height {
+            width: 1em;
+            height: 1em * $ratio-value;
+        } @else {
+            width: 1em * $ratio-value;
+            height: 1em * $ratio-value;
+        }
+    } @else {
+        width: 1em;
+        height: 1em;
+    }
+
+    // Получим дефолтный размер шрифта иконки
+    @if map-has-key($font-sizes-map, $icon-title) {
+        $icon-font-size: map-get($font-sizes-map, $icon-title);
+
+        font-size: $icon-font-size;
+    }
+}

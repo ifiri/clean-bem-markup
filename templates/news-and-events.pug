@@ -1,0 +1,51 @@
+- var title = 'News & Events';
+doctype html
+html
+    include partials/_head.pug
+
+    body.page.page_sidebar
+        | <!-- inject:svg --><!-- endinject -->
+
+        include partials/_header_type_titled.pug
+
+        include partials/_aside-panel.pug
+
+        div.content
+            main.main
+                include partials/sliders/_slider-posts.pug
+
+
+            aside.sidebar
+                div.arrows.arrows_theme_darkestgray(id="slider-posts-arrows")
+                    svg.arrows__arrow.arrows__arrow_next(title="Next")
+                        use(xlink:href="#icon-arrow")
+
+                    div.counter.counter_theme_highlight
+                        span.counter__current 01
+                        span.counter__count ...
+
+                    svg.arrows__arrow.arrows__arrow_prev(title="Previous")
+                        use(xlink:href="#icon-arrow")
+                
+                a.proposal.proposal_theme_yellow(href="#")
+                    svg.icon.icon_pdf.proposal__icon(title="Download Price")
+                        use(xlink:href="#icon-pdf")
+                    span.proposal__title Download Price
+
+                div.form.form_type_subscribe
+                    header.form__header
+                        h2.form__title Subscribe
+                    
+                    label.form__field
+                        span.form__label E-mail
+                        input.input.form__input(type="text")
+
+                    footer.form__footer
+                        a.form__signup(href="#") Sign Up
+
+                a.proposal.proposal_theme_yellow
+                    svg.icon.icon_gears.proposal__icon(title="Work With Us")
+                        use(xlink:href="#icon-gears")
+                    span.proposal__title Work With Us
+
+        include partials/_footer.pug

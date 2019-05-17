@@ -1,0 +1,40 @@
+.banner {
+    @include column(12, false);
+
+    &__element {
+        position: relative;
+        color: $banner-dark-color;
+
+        // Тут не используем цветовые схемы, т.к. цвета текста на баннере
+        // зависят от фоновой картинки собственно баннера
+        &_bg_dark {
+            color: $banner-dark-color;
+        }
+
+        &_bg_light {
+            color: $banner-light-color;
+        }
+    }
+
+    &__overlay {
+        @include column-gap();
+        @include cell-paddings-vertical();
+        @include position(absolute, 0 0 0 0);
+    }
+
+    &__content {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    &__title {
+        color: inherit;
+
+        font-size: rem(28px);
+        font-weight: normal;
+        line-height: 1.2;
+
+        text-transform: uppercase;
+    }
+}

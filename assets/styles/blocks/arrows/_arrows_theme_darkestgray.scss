@@ -1,0 +1,3 @@
+.arrows_theme_darkestgray {
+    @include color-theme-darkestgray([hover, focus]);
+}

@@ -1,0 +1,203 @@
+@mixin color-theme($theme, $exclude: ()) {
+    @if variable-exists('color-themes') == false {
+        @error "$color-themes variable is not exists";
+    }
+
+    @if _is-color-theme-correct($theme) {
+        $definition-map: map-get($color-themes, $theme);
+
+        // Удалим все, что в exclude
+        $definition-map: _exclude-definitions-from-map($definition-map, $exclude);
+
+        @include _unpack-color-theme-definitions($definition-map);
+    } @else {
+        @warn "desired color theme is not finded, no color output";
+    }
+}
+
+@function get-color-theme-property-for($theme, $property, $state: common) {
+    @if _is-color-theme-correct($theme) == false {
+        @error "passed color theme is incorrect";
+    }
+
+    $definition-map: map-get($color-themes, $theme);
+
+    @if $state == common {
+
+        @if map-has-key($definition-map, $property) {
+            @return map-get($definition-map, $property);
+        }
+
+    } @else {
+        $state-key: _get-state-key($state);
+
+        @if map-has-key($definition-map, $state-key) {
+            $state-map: map-get($definition-map, $state-key);
+
+            @if map-has-key($state-map, $property) {
+                @return map-get($state-map, $property);
+            }
+        }
+    }
+
+    @return inherit;
+}
+
+@function _exclude-definitions-from-map($definition-map, $exclude) {
+    @if type-of($exclude) == map {
+
+        $definition-map: _exclude-by-map($definition-map, $exclude);
+        
+    } @else if type-of($exclude) == list and length($exclude) > 0 {
+        
+        $definition-map: _exclude-by-list($definition-map, $exclude);
+
+    } @else if type-of($exclude) == string {
+
+        $definition-map: _exclude-by-string($definition-map, $exclude);
+
+    }
+
+    @return $definition-map;
+}
+
+@function _exclude-by-map($definition-map, $exclude) {
+    @each $excluding-prop-name, $excluding-prop-values in $exclude {
+        $masked-state-key: str-insert($excluding-prop-name, '_', 0);
+
+        // Если передан map, значит, есть попытка достучаться до состояния
+        @if map-has-key($definition-map, $masked-state-key) == true {
+            $state-map: map-get($definition-map, $masked-state-key);
+
+            @if type-of($excluding-prop-values) == list {
+
+                @each $excluding-prop-value in $excluding-prop-values {
+                    @if map-has-key($state-map, $excluding-prop-value) == true {
+                        $state-map: map-remove($state-map, $excluding-prop-value);
+
+                        $definition-map: map-merge($definition-map, (
+                            $masked-state-key: $state-map
+                        ));
+                    }
+                }
+                
+            } @else if type-of($excluding-prop-values) == string {
+
+                @if map-has-key($state-map, $excluding-prop-values) == true {
+                    $state-map: map-remove($state-map, $excluding-prop-values);
+
+                    $definition-map: map-merge($definition-map, (
+                        $masked-state-key: $state-map
+                    ));
+                }
+
+            }
+        }
+    }
+
+    @return $definition-map;
+}
+
+@function _exclude-by-list($definition-map, $exclude) {
+    @each $excluding-prop-name in $exclude {
+        $masked-state-key: str-insert($excluding-prop-name, '_', 0);
+
+        @if map-has-key($definition-map, $excluding-prop-name) == true {
+            $definition-map: map-remove($definition-map, $excluding-prop-name);
+        } @else if map-has-key($definition-map, $masked-state-key) == true {
+            $definition-map: map-remove($definition-map, $masked-state-key);
+        }
+    }
+
+    @return $definition-map;
+}
+
+@function _exclude-by-string($definition-map, $exclude) {
+    $masked-state-key: str-insert($exclude, '_', 0);
+
+    @if map-has-key($definition-map, $exclude) == true {
+        $definition-map: map-remove($definition-map, $exclude);
+    } @else if map-has-key($definition-map, $masked-state-key) == true {
+        $definition-map: map-remove($definition-map, $masked-state-key);
+    }
+
+    @return $definition-map;
+}
+
+@mixin _unpack-color-theme-definitions($definition-map) {
+    @each $definition-key, $definition-value in $definition-map {
+
+        @if _is-state-key($definition-key) {
+            $state-key: _get-state-from-key($definition-key);
+
+            @if type-of($definition-value) == map {
+                $state-map: $definition-value;
+
+                &:#{$state-key} {
+                    @include _unpack-color-theme-definitions($state-map);
+                }
+            } @else if type-of($definition-value) == string {
+
+                // ожидаем ссылку на map
+                @if map-has-key($definition-map, $definition-value) == true {
+                    $state-map: map-get($definition-map, $definition-value);
+
+                    &:#{$state-key} {
+                        @include _unpack-color-theme-definitions($state-map);
+                    }
+                } @else {
+                    @warn "map hasn't key";
+                }
+            }
+        } @else {
+            #{$definition-key}: $definition-value;
+        }
+    }
+}
+
+@function _is-color-theme-correct($theme) {
+    @if variable-exists('color-themes') == false {
+        @error "color schemes is incorrect";
+    }
+
+    @return map-has-key($color-themes, $theme);
+}
+
+@function _is-state-key($definition-key) {
+    @return str-index($definition-key, '_') == 1;
+}
+
+@function _get-state-from-key($definition-key) {
+    @return str-slice($definition-key, 2);
+}
+
+@function _get-state-key($state) {
+    @return str-insert($state, '_', 0);
+}
+
+
+
+// Предопределенные цветовые схемы, миксины для сокращения и упрощения кода
+@mixin color-theme-darkestgray($exclude: ()) {
+    @include color-theme(darkestgray, $exclude);
+}
+
+@mixin color-theme-darkgray($exclude: ()) {
+    @include color-theme(darkgray, $exclude);
+}
+
+@mixin color-theme-ocean($exclude: ()) {
+    @include color-theme(ocean, $exclude);
+}
+
+@mixin color-theme-blue($exclude: ()) {
+    @include color-theme(blue, $exclude);
+}
+
+@mixin color-theme-white($exclude: ()) {
+    @include color-theme(white, $exclude);
+}
+
+@mixin color-theme-yellow($exclude: ()) {
+    @include color-theme(yellow, $exclude);
+}

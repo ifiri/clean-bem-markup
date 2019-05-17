@@ -1,0 +1,67 @@
+.form_type_subscribe {
+    @include -cell-base();
+    @include content-min();
+    @include color-theme-blue([hover, focus]);
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(3, false);
+    }
+
+    @media screen and (min-width: breakpoint(lg)) {
+        @include column-absolute(6, false);
+    }
+
+    @media screen and (min-width: breakpoint(xl)) {
+        @include column-absolute(3, false);
+    }
+
+    .form__field {
+        position: relative;
+
+        width: 100%;
+        margin-top: em(50px, 14px);
+
+        display: block;
+
+        font-size: rem(14px);
+        color: $subscribe-form-fields-text-color;
+    }
+
+    .form__header {
+        @include -cell-header();
+
+        color: get-color-theme-property-for(blue, color);
+    }
+
+    .form__title {
+        @include -cell-title();
+    }
+
+    .form__label {
+        position: absolute;
+        top: rem(12px);
+        left: rem(15px);
+
+        color: $subscribe-form-fields-text-color;
+
+        pointer-events: none;
+    }
+
+    .form__input {
+        padding: rem(12px) rem(15px);
+    }
+
+    .form__signup {
+        @include clear-text-decoration();
+        
+        display: inline-block;
+
+        color: inherit;
+        font-size: rem(12px);
+        text-transform: uppercase;
+
+        &:hover {
+            color: $subscribe-form-signup-text-color-hover;
+        }
+    }
+}

@@ -1,0 +1,86 @@
+.header_type_titled {
+    position: relative;
+
+    width: 100%;
+    height: rem(348px);
+
+    .header__navigation {
+        position: absolute;
+
+        left: 0;
+        right: 0;
+    }
+
+    .header__background {
+        height: rem(348px);
+        width: 100%;
+
+        margin-left: 0;
+        
+        background-color: $header-common-background-color;
+
+        z-index: -1;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include -offset-covering-base();
+        }
+
+        // Характерен только для хедера типа titled
+        &_left {
+            height: 100%;
+
+            display: flex;
+
+            background-image: url($images-path + '/content/placeholders/1254x368-light.jpg');
+            background-position: center;
+
+            @media screen and (min-width: breakpoint(lg)) {
+                @include -offset-covering-element();
+                @include column-covering(6, false, max-width(lg, false));
+
+                background-position: left center;
+            }
+
+            @media screen and (min-width: breakpoint(xl)) {
+                @include column-covering(9, false);
+            }
+        }
+    }
+
+    .header__title {
+        min-width: get-absolute-column-width(3);
+        padding: em(20px, 28px) em(30px, 28px);
+
+        display: inline-block;
+
+        font-size: rem(28px);
+        font-weight: normal;
+        text-transform: uppercase;
+        color: $header-title-color;
+
+        background-color: $header-title-background-color;
+    }
+
+    .header__title-wrapper {
+        @include container(true, flex);
+
+        height: 100%;
+        
+        margin: 0 auto;
+        padding-top: rem(110px);
+
+        align-items: center;
+
+        @media screen and (min-width: breakpoint(md)) {
+            @include column-absolute(6, false);
+        }
+
+        @media screen and (min-width: breakpoint(lg)) {
+            margin: 0;
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include column-absolute(9, false);
+        }
+    }
+}

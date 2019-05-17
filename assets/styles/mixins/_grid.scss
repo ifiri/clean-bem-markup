@@ -1,0 +1,152 @@
+// Строка. Это контейнер для колонок и контейнеров, можно использовать, когда
+// колонки и контейнеры расположены в несколько строк
+@mixin row {
+    width: 100%;
+    position: relative;
+
+    @include clearfix();
+}
+
+// Создает контейнер из элемента.
+// Контейнер - это блок с четко заданной максимальной шириной,
+// опционально выровненный по центру родителя.
+@mixin container($center: false, $display: block) {
+    display: $display;
+    width: 100%;
+
+    @if $center == true {
+        margin: 0 auto;
+    }
+
+    @media screen and (min-width: breakpoint(xl)) {
+        max-width: $content-width;
+    }
+
+    @media screen and (min-width: breakpoint(lg)) {
+        max-width: map-get($container-max-widths, lg);
+    }
+
+    @media screen and (min-width: breakpoint(sm)) {
+        max-width: map-get($container-max-widths, md);
+    }
+
+    @media screen and (min-width: breakpoint(xs)) {
+        max-width: map-get($container-max-widths, sm);
+    }
+}
+
+// Создает стандартную колонку с шириной в процентах
+// и с отступами по бокам (опционально)
+@mixin column($index, $paddings: true) {
+    $col-width: (100% / 12) * $index;
+
+    // position: relative;
+    width: $col-width;
+
+    @if $paddings {
+        @include column-gap();
+    }
+}
+
+// Создает колонку с шириной в абсолютных единицах (пиксели или ремы)
+// Это позволяет создавать колонки правильной ширины в контексте
+// контейнеров любой ширины, особенно актуально в блоках со смещениями
+@mixin column-absolute($index, $paddings: true, $container-width: $content-width) {
+    width: get-column-width-absolute($index, $container-width);
+
+    @if $paddings {
+        @include column-gap();
+    }
+}
+
+// Создает колонку, которая своей шириной покрывает вычисленный
+// размер колонки и разницу между двумя типами контейнеров
+@mixin column-covering($col-index, $paddings: true, $element-width: $content-width) {
+    $col-width: (100% / 12) * $col-index; // 75
+
+    @if unit($element-width) != 'rem' {
+        $element-width: rem($element-width);
+    }
+
+    // разница между двумя контейнерами контента, деленная на два
+    $difference: (rem($content-width-max) - $element-width) / 2; // 510
+
+    // ширина колонки в контексте минимального контейнера
+    // $content-min-viewport: ($element-width / 100) * strip-units($col-width); // 659 | 879
+
+    $content-viewport: get-column-width-absolute($col-index);
+
+    // учтем необходимость покрытия свободного пространства между контейнерами
+    // $covering-width: $content-min-viewport + $difference; // 1169
+
+    $covering-width: rem($content-viewport) + $difference;
+
+    // если нужны пэддинги (хотя обычно нет), добавляем
+    @if $paddings {
+        @include column-gap();
+    } @else {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    width: $covering-width;
+}
+
+// Добавляет колонке отступы с боков
+@mixin column-gap() {
+    padding-left: rem($column-gap-width);
+    padding-right: rem($column-gap-width);
+}
+
+// Сдвигает элемент в стороны на указанное число КОЛОНОК
+// Если режим relative, то сдвиг в процентах, если режим absolute,
+// сдвиг в абсолютных единицах относительно ширины $container-width
+@mixin column-push-to($direction, $col-count, $mode: relative, $container-width: $content-width) {
+    $push-width: (100% / 12) * $col-count;
+
+    // In px / rems
+    @if $mode == absolute {
+        $push-width: ($container-width / 100) * strip-units($push-width);
+    }
+
+    @if $direction == right {
+        margin-left: $push-width;
+    } @else if $direction == left {
+        margin-left: $push-width * -1;
+    }
+}
+
+// Сдвигает элемент вверх или вниз на указанное число ЯЧЕЕК
+// Работает только в одном режиме, т.к. ячейки априори задаются в абсолютных единицах
+@mixin cell-push-to($direction, $cell-count) {
+    $offset-height: $cell-height * $cell-count;
+
+    @if $direction == top {
+        margin-bottom: $offset-height;
+    } @else if $direction == bottom {
+        margin-top: $offset-height;
+    }
+}
+
+// Добавляет ячейке отступы сверху и снизу
+@mixin cell-paddings-vertical() {
+    @include cell-padding-top();
+    @include cell-padding-bottom();
+}
+
+@mixin cell-padding-top() {
+    padding-top: rem($cell-padding-vertical);
+}
+
+@mixin cell-padding-bottom() {
+    padding-bottom: rem($cell-padding-vertical);
+}
+
+@mixin content-min() {
+    width: $content-width-min;
+}
+
+@mixin content-max() {
+    max-width: $content-width-max;
+    width: 100%;
+}

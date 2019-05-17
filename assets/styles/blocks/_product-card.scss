@@ -1,0 +1,36 @@
+.product-card {
+    display: flex;
+    text-align: left;
+
+    &__imagebox {
+        margin-right: 10px;
+    }
+
+    &__contentbox {
+        flex-grow: 1;
+
+        font-size: rem(14px);
+        text-align: left;
+    }
+
+    &__title {
+        margin-top: 3px;
+        margin-bottom: 5px;
+
+        font-weight: normal;
+        color: #a0a0a0;
+        line-height: 1.25;
+    }
+
+    &__amount {
+        margin-left: 5px;
+
+        display: inline-block;
+        
+        color: #d7d7d7;
+    }
+
+    &__price {
+        color: #767676;
+    }
+}

@@ -1,0 +1,37 @@
+@function em($pixels, $base: $font-size-base-px) {
+    @if unit($pixels) == 'px' {
+        $ems: ($pixels / $base) * 1em;
+
+        @return $ems;
+    }
+
+    @return $pixels;
+}
+
+@function rem($pixels) {
+    @if unit($pixels) == 'px' {
+        $rems: ($pixels / $font-size-base-px) * 1rem;
+
+        @return $rems;
+    }
+  
+    @return $pixels;
+}
+
+@function px($value) {
+    @if unit($value) != 'px' {
+        $pxs: strip-units($value) * 1px;
+
+        @return $pxs;
+    }
+  
+    @return $value;
+}
+
+@function strip-units($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}

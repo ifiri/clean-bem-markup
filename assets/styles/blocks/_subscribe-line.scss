@@ -1,0 +1,18 @@
+// Вспомогательный блок, используется на главной. 
+// В нем находятся форма подписки, а также ячейка с предложением
+.subscribe-line {
+    @include column(12, false);
+
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        flex-direction: row;
+    }
+
+    @media screen and (min-width: breakpoint(xl)) {
+        @include column(3, false);
+        
+        display: block;
+    }
+}

@@ -1,0 +1,183 @@
+- var title = 'News & Events';
+doctype html
+html
+    include partials/_head.pug
+
+    body.page.page_sidebar
+        | <!-- inject:svg --><!-- endinject -->
+
+        include partials/_header_type_titled.pug
+
+        include partials/_aside-panel.pug
+
+        div.content
+            main.main
+                
+                article.post
+                    div.post__headerbox
+                        header.post__header
+                            time.time.post__time 12 february, 2015
+                            h1.post__title
+                                | The Daily Reporter Selects Gilbane Building Company as 2014 Wisconsin Builder of the Year
+
+                            div.socials.post__socials
+                                span.socials__label Share this post
+                                //- div.socials__icons
+                                a.socials__icon(href="#")
+                                    svg.icon.icon_facebook(title="Facebook")
+                                        use(xlink:href="#icon-facebook")
+                                a.socials__icon(href="#")
+                                    svg.icon.icon_pinterest(title="Pinterest")
+                                        use(xlink:href="#icon-pinterest")
+                                a.socials__icon(href="#")
+                                    svg.icon.icon_google-plus(title="Google+")
+                                        use(xlink:href="#icon-google-plus")
+                                a.socials__icon(href="#")
+                                    svg.icon.icon_twitter(title="Twitter")
+                                        use(xlink:href="#icon-twitter")
+
+
+                    div.post__gallery
+                        include partials/sliders/_slider-post-gallery.pug
+
+
+                    div.post__content
+                        p
+                            | Hoffman uses the latest technology to achieve better buildings. We pioneered computer-aided 3D design collaboration on projects like the Experience Music Project and Seattle Central Library. Today we leverage a suite of Building Information Modeling (BIM) tools to enhance collaboration among designers, owners, subcontractors, and suppliers. Our investment in cutting-edge technologies means fewer RFIs and change orders, and faster completion dates.
+
+                        figure
+                            blockquote.important-quote
+                                | In the world of construction, certain qualifications must be met in order to supervise the physical execution of projects. Architects, Engineers and General Contractors are the licensed individuals qualified to manage construction projects. 
+
+                        h3
+                            | Project design and engineering
+
+                        p
+                            | Hoffman uses the latest technology to achieve better buildings. We pioneered computer-aided 3D design collaboration on projects like the Experience Music Project and Seattle Central Library. Today we leverage a suite of Building Information Modeling (BIM) tools to enhance collaboration among designers, owners, subcontractors, and suppliers. Our investment in cutting-edge technologies means fewer RFIs and change orders, and faster completion dates.
+
+                        figure
+                            blockquote
+                                | 3D laser scanning ensures we understand the as-built conditions of a project site before we begin. We built our projects virtually first, ensuring maximum efficiency when we mobilize on the site. BIM models are shared among suppliers, facilitating off-site fabrication and assembly, which reduces site congestion.
+
+                        p
+                            | Hoffman uses the latest technology to achieve better buildings. We pioneered computer-aided 3D design collaboration on projects like the Experience Music Project and Seattle Central Library. 
+
+                    footer.post__meta
+                        div.tags.post__tags
+                            span.tags__label Tags
+                            a.tags__tag(href="#") winter
+                            a.tags__tag(href="#") is cumming
+
+
+                section.comments
+                    h2.comments__title
+                        | Comments (5)
+                    
+                    ul.comments__list
+                        li.comments__branch.comments__branch_ancestor
+                            article.comment
+                                div.comment__avatarbox
+                                    img.image.comment__avatar(src="dist/images/content/placeholders/293x586.jpg")
+
+                                header.comment__header
+                                    h5.comment__author Jordan Belford
+                                    time.comment__time 
+                                        | Posted At 15:32 H. 06 December
+
+                                div.comment__content
+                                    p
+                                        | ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                            
+                            ul.comments__list
+                                li.comments__branch
+                                    article.comment
+                                        div.comment__avatarbox
+                                            img.image.comment__avatar(src="dist/images/content/placeholders/60x60.jpg")
+
+                                        header.comment__header
+                                            h5.comment__author Jordan Belford
+                                            time.comment__time 
+                                                | Posted At 15:32 H. 06 December
+
+                                        div.comment__content
+                                            p
+                                                | ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                    
+
+                    form.form.form_type_comments
+                        header.form__header
+                            h2.form__title Leave a Reply
+                            small.form__subtitle Your email address will not be published.
+
+                        div.form__body
+                            div.form__column.form__userdata
+                                label.form__field-container
+                                    span.form__label Name
+                                    input.input.form__field(placeholder="Name", type="text")
+                                
+                                label.form__field-container
+                                    span.form__label E-mail
+                                    input.input.form__field(placeholder="E-mail", type="email")
+
+                                label.form__field-container
+                                    span.form__label Website
+                                    input.input.form__field(placeholder="Website", type="url")
+
+                            div.form__column.form__usermessage
+                                label.form__field-container.form__field-container_big
+                                    span.form__label Message
+                                    textarea.input.form__field(placeholder="Message")
+
+                        footer.form__footer
+                            button.btn.form__submit(type="submit")
+                                span Add Comment
+
+
+
+            aside.sidebar
+                div.post-navigation-links
+                    svg.post-navigation-links__next(title="Next Post")
+                        use(xlink:href="#icon-arrow")
+
+                    svg.post-navigation-links__prev(title="Previous Post")
+                        use(xlink:href="#icon-arrow")
+
+
+                a.proposal.proposal_theme_yellow(href="#")
+                    svg.icon.icon_pdf.proposal__icon(title="Download Price")
+                        use(xlink:href="#icon-pdf")
+                    span.proposal__title Download Price
+
+
+                section.popular-posts
+                    header.popular-posts__header
+                        h2.popular-posts__title Popular Posts
+
+                    div.popular-posts__content
+                        include partials/sliders/_slider-entries.pug
+                
+                    
+
+                section.instagram-spot
+                    a.instagram-spot__pointer(href="#")
+                        svg.icon.icon_instagram.instagram-spot__icon(title="Follow us on Instagram")
+                            use(xlink:href="#icon-instagram")
+                        span.instagram-spot__title Follow us on Instagram
+
+                    div.instagram-spot__photo
+                        img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")
+
+                a.proposal.proposal_theme_blue(href="#")
+                    span.icon.icon_play.proposal__icon
+                    span.proposal__title Company Video
+
+                section.banner
+                    article.banner__element
+                        div.banner__overlay
+                            span.banner__title
+                                | The best <br> architects <br> of the world <br> advise our <br> company
+
+                        img.banner__content(src="dist/images/content/placeholders/293x586.jpg", alt="")
+
+
+        include partials/_footer.pug

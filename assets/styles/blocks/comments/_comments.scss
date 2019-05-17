@@ -1,0 +1,37 @@
+.comments {
+    @include column(12);
+
+    &__title {
+        margin-bottom: em(50px, 28px);
+
+        font-size: rem(28px);
+        font-weight: normal;
+
+        color: $brand-darkgray;        
+    }
+
+    &__list,
+    &__branch {
+        @include clear-list-style();
+
+        position: relative;
+    }
+
+    &__branch {
+        margin-top: rem(50px);
+        
+        display: block;
+
+        &:first-child {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+    }
+
+    // Поведение формы комментариев меняется в зависимости от того, 
+    // находится ли она в блоке комментариев или нет
+    .form_type_comments {
+        margin-right: rem(-30px);
+        margin-left: rem(-30px);
+    }
+}

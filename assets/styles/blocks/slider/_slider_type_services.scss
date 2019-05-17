@@ -1,0 +1,90 @@
+.slider_type_services {
+    min-height: $grid-slider-height;
+
+    display: flex;
+
+    .slider__wrapper {
+        @include column(12, false);
+    }
+
+    .slider__arrows {
+        @include column-absolute(3);
+
+        margin: 0 auto;
+
+        @media screen and (min-width: breakpoint(sm)) {
+            float: right;
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            float: none;
+        }
+    }
+
+    .slider__sidebar {
+        @include clearfix();
+
+        position: relative;
+        z-index: 10;
+
+        @media screen and (min-width: breakpoint(md)) {
+            width: 100%;
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include column-absolute(3, false);
+
+            float: left;
+        }
+    }
+
+    .slider__inner {
+        height: 100%;
+    }
+
+    .slider__slide {
+        @include content-min();
+
+        position: relative;
+        float: left;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        pointer-events: none;
+
+        @media screen and (min-width: breakpoint(sm)) {
+            @include column-absolute(9, false);
+
+            align-items: flex-start;
+        }
+
+        @media screen and (min-width: breakpoint(lg)) {
+            display: block;
+        }
+    }
+
+    // Внешние блоки, зависящие от слайдера
+    .contentbox {
+        margin: 0 auto;
+
+        color: $grid-slider-description-color;
+
+        @media screen and (min-width: breakpoint(xs)) {
+            @include column-absolute(3);
+        }
+
+        @media screen and (min-width: breakpoint(sm)) {
+            float: left;
+        }
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column-absolute(6);
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include column-absolute(3);
+        }
+    }
+}

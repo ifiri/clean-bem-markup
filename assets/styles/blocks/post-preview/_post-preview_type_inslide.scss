@@ -1,0 +1,29 @@
+.post-preview_type_inslide {
+    display: block;
+
+    .post-preview__title {
+        max-height: rem(90px);
+        
+        overflow: hidden;
+
+        color: $post-preview-inslide-title-color;
+    }
+
+    .post-preview__time {
+        color: $post-preview-inslide-meta-color;
+    }
+
+    .post-preview__comment-count {
+        @include clear-text-decoration();
+        
+        color: $post-preview-inslide-meta-color;
+
+        &:hover {
+            color: $post-preview-inslide-meta-color-hover;
+        }
+    }
+
+    .post-preview__meta {
+        margin-top: rem(20px);
+    }
+}

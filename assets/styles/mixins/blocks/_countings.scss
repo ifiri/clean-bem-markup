@@ -1,0 +1,44 @@
+@mixin countings() {
+    @include -countings-reset();
+
+    &__counting {
+        @include -countings-counting();
+    }
+
+    &__counter {
+        @include -countings-counter();
+        
+        @include color-theme-yellow([hover, focus]);
+    }
+}
+
+@mixin -countings-reset() {
+    counter-reset: countings;
+}
+
+@mixin -countings-counting() {
+    counter-increment: countings;
+}
+
+@mixin -countings-counter() {
+    position: absolute;
+    top: em(30px, $counter-base-font-size);
+    left: em(30px, $counter-base-font-size);
+
+    width: em(70px, $counter-base-font-size);
+    height: em(70px, $counter-base-font-size);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: rem($counter-base-font-size);
+
+    background-color: $brand-white;
+
+    z-index: 10;
+
+    &::after {
+        content: counter(countings);
+    }
+}

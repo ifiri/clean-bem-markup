@@ -1,0 +1,20 @@
+.inline-contacts {
+    margin-top: rem(70px);
+
+    &__icon {
+        margin-bottom: rem(10px);
+
+        font-size: 1.25em;
+    }
+
+    &__item {
+        margin-bottom: rem(5px);
+        
+        font-size: rem(14px);
+        color: #a0a0a0;
+        
+        &_location {
+            margin-bottom: rem(20px);
+        }
+    }
+}

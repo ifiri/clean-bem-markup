@@ -1,0 +1,50 @@
+.footer {
+    @include container(true);
+
+    display: flex;
+    flex-direction: column;
+
+    padding-top: rem(30px);
+    padding-bottom: rem(30px);
+
+    @media screen and (min-width: breakpoint(lg)) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &__copyright {
+        @include column(12);
+
+        font-size: rem(12px);
+        text-align: center;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column(3);
+
+            padding-left: 0;
+
+            text-align: left;
+        }
+    }
+
+    &__navigation {
+        @include column(12, false);
+
+        margin-bottom: rem(20px);
+        text-align: center;
+
+        // На маленьких экранах навигация должна быть сдвинута в начало, перед копирайтом
+        order: -1;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            @include column(9);
+
+            padding-right: 0;
+            margin-bottom: 0;
+
+            text-align: right;
+
+            order: 0;
+        }
+    }
+}

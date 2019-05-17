@@ -1,0 +1,25 @@
+div.slider.slider_type_gallery(data-slidesToShow="2", data-arrows="true", data-adaptiveHeight="true")
+    div.arrows.slider__arrows
+        svg.arrows__arrow.arrows__arrow_next(title="Next")
+            use(xlink:href="#icon-arrow")
+
+        div.counter
+            span.counter__current 01
+            span.counter__count ...
+
+        svg.arrows__arrow.arrows__arrow_prev(title="Previous")
+            use(xlink:href="#icon-arrow")
+
+    div.slider__wrapper
+        div.slider__inner
+            div.slider__slide
+                div.post__imagebox
+                    img.image.post__image(src="dist/images/content/placeholders/879x586.jpg")
+
+            div.slider__slide
+                div.post__imagebox
+                    img.image.post__image(src="dist/images/content/placeholders/1254x368-light.jpg")
+
+            div.slider__slide
+                div.post__imagebox
+                    img.image.post__image(src="dist/images/content/placeholders/879x586.jpg")

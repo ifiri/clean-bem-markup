@@ -1,0 +1,148 @@
+@import "common/variables";
+
+// bower:scss
+@import "../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "../../bower_components/slick-carousel/slick/slick.scss";
+// endbower
+
+@import "../../vendor/sanitize-css/sanitize.css";
+
+
+
+@import "functions/units";
+@import "functions/grid";
+@import "functions/utils";
+
+@import "mixins/grid";
+@import "mixins/offsets";
+@import "mixins/icons";
+@import "mixins/decoration";
+@import "mixins/color-themes";
+@import "mixins/animation";
+@import "mixins/utils";
+
+    @import "mixins/blocks/offset/offset-standard.scss";
+    @import "mixins/blocks/offset/offset-covering.scss";
+    @import "mixins/blocks/button.scss";
+    @import "mixins/blocks/cell/cell-standard.scss";
+    @import "mixins/blocks/cell/cell-iconic.scss";
+    @import "mixins/blocks/icon.scss";
+    @import "mixins/blocks/menu/menu-links.scss";
+    @import "mixins/blocks/menu/menu-vertical.scss";
+    @import "mixins/blocks/comment.scss";
+    @import "mixins/blocks/input.scss";
+    @import "mixins/blocks/arrows.scss";
+    @import "mixins/blocks/tag.scss";
+    @import "mixins/blocks/cell-group.scss";
+    @import "mixins/blocks/pointer.scss";
+    @import "mixins/blocks/countings.scss";
+    @import "mixins/blocks/accordion.scss";
+
+@import "common/fonts";
+@import "common/global";
+@import "common/grid";
+@import "common/icons";
+@import "common/animations";
+
+@import "blocks/header/header";
+    @import "blocks/header/header_type_untitled";
+    @import "blocks/header/header_type_titled";
+    
+@import "blocks/footer";
+@import "blocks/input";
+@import "blocks/menu/menu";
+    @import "blocks/menu/menu_type_footer";
+    @import "blocks/menu/menu_type_aside";
+
+@import "blocks/icon/icon";
+    @import "blocks/icon/icon_play";
+
+@import "blocks/countings";
+@import "blocks/counter/counter";
+    @import "blocks/counter/counter_theme_highlight";
+
+@import "blocks/service-card/service-card";
+    @import "blocks/service-card/service-card_wide";
+    @import "blocks/service-card/service-card_tall";
+
+@import "blocks/entry-card";
+
+@import "blocks/services-grid";
+
+@import "blocks/tags";
+@import "blocks/comments/comments";
+    @import "blocks/comments/comments__branch_ancestor";
+@import "blocks/comment";
+
+@import "blocks/post";
+@import "blocks/important-quote";
+@import "blocks/socials";
+
+@import "blocks/aside-panel";
+@import "blocks/search-box";
+@import "blocks/inline-contacts";
+
+@import "blocks/arrows/arrows";
+    @import "blocks/arrows/arrows_theme_darkestgray";
+@import "blocks/slider/slider";
+    @import "blocks/slider/slider_type_promo";
+    @import "blocks/slider/slider_type_entries";
+    @import "blocks/slider/slider_type_posts";
+    @import "blocks/slider/slider_type_projects";
+    @import "blocks/slider/slider_type_services";
+    @import "blocks/slider/slider_type_gallery";
+    @import "blocks/slider/slider_type_testimonials";
+
+@import "blocks/page";
+
+@import "blocks/content";
+@import "blocks/sidebar";
+@import "blocks/main";
+
+@import "blocks/post-navigation-links";
+@import "blocks/instagram-spot";
+@import "blocks/contentbox";
+@import "blocks/search-line";
+
+@import "blocks/cart/cart";
+    @import "blocks/cart/cart_type_mini";
+
+@import "blocks/product-card";
+@import "blocks/icon-links";
+
+@import "blocks/form/form";
+    @import "blocks/form/form_type_search";
+    @import "blocks/form/form_type_subscribe";
+    @import "blocks/form/form_type_comments";
+@import "blocks/testimonial/testimonial";
+    @import "blocks/testimonial/testimonial_size_small";
+@import "blocks/testimonials";
+@import "blocks/subscribe-line";
+@import "blocks/proposal/proposal";
+    @import "blocks/proposal/proposal_theme_yellow";
+    @import "blocks/proposal/proposal_theme_blue";
+@import "blocks/popular-posts";
+@import "blocks/news";
+@import "blocks/news-and-projects";
+@import "blocks/about-company";
+@import "blocks/information";
+@import "blocks/project";
+
+@import "blocks/services-tile";
+
+@import "blocks/rating/rating";
+    @import "blocks/rating/rating__icon_empty";
+@import "blocks/advantage/advantage";
+    @import "blocks/advantage/advantage_construction";
+    @import "blocks/advantage/advantage_procurement";
+@import "blocks/advantages";
+@import "blocks/post-preview/post-preview";
+    @import "blocks/post-preview/post-preview_type_inslide";
+@import "blocks/banner";
+
+@import "blocks/image";
+@import "blocks/logo";
+
+@import "blocks/btn";
+
+@import "blocks/support";

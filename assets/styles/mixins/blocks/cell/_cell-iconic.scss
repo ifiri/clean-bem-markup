@@ -1,0 +1,57 @@
+@mixin cell-iconic() {
+    @include -cell-iconic-base();
+    
+    .cell__title {
+        @include -cell-iconic-title();
+    }
+
+    .cell_icon {
+        @include -cell-iconic-icon();
+    }
+}
+
+@mixin -cell-iconic-base() {
+    @include content-min();
+    @include clear-text-decoration();
+
+    min-height: $cell-height;
+    height: 0; // IE flexbox fix
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(3, false);
+    }
+}
+
+@mixin -cell-iconic-icon() {
+    @include transition(transform);
+
+    margin-bottom: em(15px, 70px);
+    margin-top: rem($video-tap-title-font-size) * 4;
+
+    font-size: rem(70px);
+}
+
+@mixin -cell-iconic-title() {
+    overflow: hidden;
+
+    max-width: 100%;
+    height: rem($video-tap-title-font-size) * 4 * 1.1;
+    margin: 0 auto;
+
+    display: block;
+
+    font-size: rem($video-tap-title-font-size);
+    color: inherit;
+
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: em(0.5px, $video-tap-title-font-size);
+}

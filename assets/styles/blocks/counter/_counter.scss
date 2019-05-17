@@ -1,0 +1,29 @@
+.counter {
+    display: inline-block;
+
+    font-size: 1rem;
+    text-align: center;
+
+    color: inherit;
+
+    &__current {
+        font-size: rem($counter-current-font-size);
+        line-height: 1;
+    }
+
+    &__count {
+        position: relative;
+
+        vertical-align: top;
+
+        font-size: rem($counter-count-font-size);
+        line-height: 1;
+
+        &::before {
+            content: "/ ";
+            
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}

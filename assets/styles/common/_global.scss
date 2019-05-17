@@ -1,0 +1,186 @@
+// Root
+:root {
+    font-size: $font-size-base;
+
+    background-color: $background-global;
+
+    text-rendering: optimizeLegibility;
+
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+
+    max-width: $content-width-max;
+    min-width: $content-width-min;
+    width: 100%;
+    margin: 0 auto;
+
+    font-size: rem($font-size-common);
+    font-family: $font-family-common;
+    color: $text-color;
+    line-height: $golden;
+}
+
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    font-family: $font-family-common;
+    color: $headings-color;
+
+    line-height: $headings-line-height;
+}
+
+h2 {
+    font-size: rem($h2-font-size);
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: rem($h3-font-size);
+}
+
+h4 {
+    margin-top: em(30px, 14px);
+    font-size: rem($h4-font-size);
+}
+
+h5 {
+    font-size: rem($h5-font-size);
+    font-weight: bold;
+}
+
+
+// Placeholders
+::-webkit-input-placeholder {
+    color: $placeholder-text-color;
+    opacity: 0.75;
+}
+::-moz-placeholder {
+    color: $placeholder-text-color;
+    opacity: 0.75;
+}
+:-moz-placeholder {
+    color: $placeholder-text-color;
+    opacity: 0.75;
+}
+:-ms-input-placeholder {
+    color: $placeholder-text-color;
+    opacity: 0.75;
+}
+
+
+// Inputs
+#{$all-text-inputs},
+textarea { // Bourbon variable
+    font-family: $font-family-common;
+
+    border: 0 none;
+
+    &::placeholder {
+        color: $placeholder-text-color !important; // in IE color override placeholder color, fix it
+        opacity: 0.75;
+    }
+
+    &:active {
+        box-shadow: 0 none;
+    }
+}
+
+textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: rem(200px);
+}
+
+
+// Lists
+ul, ol {
+    margin: 0;
+}
+
+
+// Links
+a {
+    @include transition(color);
+
+    color: $link-color;
+    text-decoration: $link-decoration;
+
+    cursor: pointer;
+
+    &:hover {
+        color: $link-color-hover;
+    }
+}
+
+
+// Text Blocks
+p {
+    margin-top: 0;
+    margin-bottom: em(15px, 14px);
+
+    @media screen and (min-width: breakpoint(sm)) {
+        margin-bottom: em(20px, 14px);
+    }
+}
+
+figure {
+    margin-top: em(20px, 14px);
+    margin-bottom: em(20px, 14px);
+
+    margin-left: 0;
+    margin-right: 0;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        margin-top: em(30px, 14px);
+        margin-bottom: em(30px, 14px);
+    }
+
+    @media screen and (min-width: breakpoint(md)) {
+        margin-top: em(40px, 14px);
+        margin-bottom: em(40px, 14px);
+    }
+}
+
+figure + h4,
+figure + h3 {
+    margin-top: em(40px, 14px);
+
+    @media screen and (min-width: breakpoint(sm)) {
+        margin-top: em(60px, 14px);
+    }
+
+    @media screen and (min-width: breakpoint(md)) {
+        margin-top: em(90px, 14px);
+    }
+}
+
+blockquote {
+    margin: 0;
+
+    font-size: em(18px, 14px);
+    color: $brand-darkgray;
+
+    @include css-lock((
+        'line-height-min': 1.5em,
+        'line-height-max': 1.7em,
+    ));
+
+    @media screen and (min-width: breakpoint(xl)) {
+        line-height: 1.7em;
+    }
+}
+
+time {
+    margin-bottom: rem(10px);
+
+    display: block;
+
+    line-height: 1;
+    color: inherit;
+}

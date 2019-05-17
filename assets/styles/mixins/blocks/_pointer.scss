@@ -1,0 +1,144 @@
+@mixin pointer($color: inherit) {
+    @include -pointer-base();
+
+    &_to_up {
+        @include -pointer-to-up($color);
+    }
+
+    &_to_right {
+        @include -pointer-to-right($color);
+    }
+
+    &_to_down {
+        @include -pointer-to-down($color);
+    }
+
+    &_to_left {
+        @include -pointer-to-left($color);
+    }
+}
+
+@mixin -pointer-base() {
+    @include content-before();
+    
+    z-index: 15;
+
+    &::before {
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+    }
+}
+
+@mixin -pointer-to-up($color: inherit) {
+    &::before {
+        @include -pointer-appearance-for(up);
+        @include -pointer-position-for(up);
+        @include -pointer-color-for(up, $color);
+    
+        border-top-width: 0;
+    }
+}
+
+@mixin -pointer-to-right($color: inherit) {
+    &::before {
+        @include -pointer-appearance-for(right);
+        @include -pointer-position-for(right);
+        @include -pointer-color-for(right, $color);
+
+        border-right-width: 0;
+    }
+}
+
+@mixin -pointer-to-down($color: inherit) {
+    &::before {
+        @include -pointer-appearance-for(down);
+        @include -pointer-position-for(down);
+        @include -pointer-color-for(down, $color);
+        
+        border-bottom-width: 0;
+    }
+}
+
+@mixin -pointer-to-left($color: inherit) {
+    &::before {
+        @include -pointer-appearance-for(left);
+        @include -pointer-position-for(left);
+        @include -pointer-color-for(left, $color);
+        
+        border-left-width: 0;
+    }
+}
+
+@mixin -pointer-appearance-for($direction, $color: transparent) {
+    $_arrow-width: rem($pointer-arrow-width);
+    $_arrow-height: rem($pointer-arrow-height);
+
+    // к сожалению, не можем использовать все значения color тут
+    // потому что данный bourbon-миксин не поддерживает inherit
+    // так что для корректно установки всех возможных цветов есть другой миксин
+    @include triangle($_arrow-width $_arrow-height, $color, $direction);
+}
+
+@mixin -pointer-color-for($direction, $color: inherit) {
+    @if $direction == up {
+        border-bottom-color: $color;
+    } @else if $direction == right {
+        border-left-color: $color;
+    } @else if $direction == down {
+        border-top-color: $color;
+    } @else if $direction == left {
+        border-right-color: $color;
+    }
+}
+
+@mixin -pointer-position-for($direction) {
+    $align-offset: ((rem($pointer-arrow-width) / 2) - 0.1) * -1;
+
+    @if $direction == up {
+
+        top: rem($pointer-arrow-height) * -1;
+        left: 50%;
+
+        right: auto;
+        bottom: auto;
+
+        margin-left: $align-offset;
+        margin-top: auto;
+
+    } @else if $direction == right {
+
+        top: 50%;
+        right: rem($pointer-arrow-height) * -1;
+        
+        left: auto;
+        bottom: auto;
+
+        margin-top: $align-offset;
+        margin-bottom: auto;
+
+    } @else if $direction == down {
+
+        bottom: rem($pointer-arrow-height) * -1;
+        left: 50%;
+
+        top: auto;
+        right: auto;
+        
+        margin-left: $align-offset;
+        margin-bottom: auto;
+
+    } @else if $direction == left {
+
+        top: 50%;
+        left: rem($pointer-arrow-height) * -1;
+
+        right: auto;
+        bottom: auto;
+        
+        margin-top: $align-offset;
+        margin-left: auto;
+
+    }
+}

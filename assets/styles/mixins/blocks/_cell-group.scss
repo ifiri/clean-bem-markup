@@ -1,0 +1,99 @@
+@mixin cell-group($size) {
+    @if $size == '2h' {
+        @include -cell-group-size-2h();
+
+        &__element {
+            @include -cell-group-element-for-2h();
+        }
+    } @else if $size == '2w' {
+        @include -cell-group-size-2w();
+
+        &__element {
+            @include -cell-group-element-for-2w();
+        }
+    } @else if $size == '3w' {
+        @include -cell-group-size-3w();
+
+        &__element {
+            @include -cell-group-element-for-3w();
+        }
+    }
+}
+
+@mixin -cell-group-size-2h {
+    @include content-min();
+
+    min-height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(3, false);
+        
+        min-height: ($cell-height * 2);
+    }
+}
+
+@mixin -cell-group-size-2w {
+    @include content-min();
+
+    // Тут можно не ставить большую высоту, т.к. ячейки 
+    // на таких разрешениях могут быть маленькими
+    min-height: $cell-height;
+
+    display: flex;
+    flex-direction: column;
+
+    // На маленьких экранах любой широкий блоок становится вытянутым
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(6, false);
+
+        flex-direction: row;
+    }
+}
+
+@mixin -cell-group-size-3w {
+    @include content-min();
+
+    min-height: $cell-height;
+
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(6, false);
+
+        min-height: $cell-height;
+
+        flex-direction: row;
+    }
+
+    @media screen and (min-width: breakpoint(xl)) {
+        @include column-absolute(9, false);
+    }
+}
+
+@mixin -cell-group-element-for-2h() {
+    width: 100%;
+}
+
+@mixin -cell-group-element-for-2w() {
+    width: 100%;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        width: 50%;
+    }
+}
+
+@mixin -cell-group-element-for-3w() {
+    @include column(12, false);
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column(6, false);
+    }
+
+    @media screen and (min-width: breakpoint(xl)) {
+        @include column(4, false);
+    }
+}

@@ -1,0 +1,24 @@
+@function css-lock($min, $max) {
+    $difference: strip-units($max - $min);
+    $lock-viewport-range: strip-units(max-width(xl) - max-width(sm));
+
+    $min-viewport-width: max-width(sm);
+
+    @return calc(#{$min} + #{$difference} * ((100vw - #{$min-viewport-width}) / #{$lock-viewport-range}));
+}
+
+@function is-font-size-should-be-locked($locks-map) {
+    @if map-has-key($locks-map, font-size-min) and map-has-key($locks-map, font-size-max) {
+        @return true;
+    }
+
+    @return false;
+}
+
+@function is-line-height-should-be-locked($locks-map) {
+    @if map-has-key($locks-map, line-height-min) and map-has-key($locks-map, line-height-max) {
+        @return true;
+    }
+
+    @return false;
+}

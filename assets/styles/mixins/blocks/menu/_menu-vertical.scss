@@ -1,0 +1,67 @@
+@mixin menu-vertical() {
+    @include -menu-vertical-base();
+
+    .menu__list {
+        @include -menu-vertical-list();
+    }
+
+    .menu__item {
+        @include -menu-vertical-item();
+    }
+
+    .menu__item_ancestor {
+        @include -menu-vertical-ancestor-item();
+    }
+
+    .menu__link {
+        @include -menu-vertical-link();
+    }
+}
+
+@mixin -menu-vertical-base() {
+    display: block;
+}
+
+@mixin -menu-vertical-list() {
+    @include clear-list-style();
+}
+
+@mixin -menu-vertical-item() {
+    display: block;
+}
+
+@mixin -menu-vertical-ancestor-item() {
+    @include -accordion-base();
+
+    > .menu__list {
+        @include -accordion-content();
+
+        padding-left: rem(20px);
+        padding-top: rem(15px);
+        padding-bottom: rem(15px);
+
+        .menu__link {
+            font-size: 0.875em; // меньше, чем основной уровень
+
+            padding: rem(7px) 0;
+        }
+    }
+
+    > .menu__link {
+        @include -accordion-trigger();
+
+        &[data-accordion-opened] {
+            @include -accordion-trigger-open();
+        }
+    }
+}
+
+@mixin -menu-vertical-link() {
+    @include clear-text-decoration();
+        
+    padding: rem(14px) 0;
+
+    display: block;
+
+    font-size: 1rem;
+}

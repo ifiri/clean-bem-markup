@@ -1,0 +1,64 @@
+// Блок лэйаута для карточек с услугами. 
+// Определяет их расположение относительно друг друга,
+// а также их элементов при определенных условиях
+.services-grid {
+    &__item {
+        @media screen and (min-width: breakpoint(sm)) {
+            @include column-absolute(6, false);
+            
+            min-height: $cell-height;
+
+            flex-direction: row;
+        }
+
+        @media screen and (min-width: breakpoint(xl)) {
+            @include column-absolute(3, false);
+            
+            min-height: ($cell-height * 2);
+            
+            flex-direction: column;
+        }
+
+        // Собственно карточки
+        &.service-card_tall:nth-child(n+4) {
+            @media screen and (min-width: breakpoint(sm)) and (max-width: breakpoint(xl)) {
+                flex-direction: row-reverse;
+            }
+
+            .service-card__contentbox {
+                @media screen and (min-width: breakpoint(sm)) and (max-width: breakpoint(xl)) {
+                    // Реверсируем также и стрелочки
+                    &:first-child {
+                        @include -pointer-to-left();
+                    }
+
+                    &:last-child {
+                        @include -pointer-to-right();
+                    }
+                }
+            }
+        }
+
+        // Их элементы
+        .service-card__contentbox,
+        .service-card__imagebox, {
+            @media screen and (min-width: breakpoint(sm)) and (max-width: breakpoint(xl)) {
+                width: 50%;
+            }
+        }
+
+        .service-card__contentbox {
+            @media screen and (min-width: breakpoint(sm)) and (max-width: breakpoint(xl)) {
+                // Поскольку карточки сервисов имеют тип tall,
+                // на таких разрешениях внутри сетки они превращаются в wide
+                &:first-child {
+                    @include -pointer-to-right();
+                }
+
+                &:last-child {
+                    @include -pointer-to-left();
+                }
+            }
+        }
+    }
+}

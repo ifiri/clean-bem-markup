@@ -1,0 +1,80 @@
+.slider {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+
+    overflow: hidden;
+
+    &__slide {
+        position: relative;
+        float: left;
+
+        pointer-events: none;
+    }
+
+    &__wrapper {
+        // ...
+    }
+
+    &__inner {
+        width: 99999px; // prevent fouc
+
+        &.slick-initialized {
+            width: auto; // after slick init, remove anti-fouc hack
+        }
+    }
+
+    &__dots {
+        @include clear-list-style();
+
+        height: em(5px);
+
+        text-align: center;
+
+        li {
+            display: inline-block;
+            margin-right: rem(15px);
+
+            vertical-align: top;
+
+            font-size: 1rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__dot {
+        width: rem(25px);
+        height: rem(5px);
+
+        display: block;
+
+        background-color: $slider-dots-color;
+
+        // Стилизация цвета индикатора в зависимости от ситуации
+        .slick-active & {
+            background-color: $slider-dots-color-active;
+        }
+
+        .slider__dots_bright & {
+            background-color: $slider-dots-color-bright;
+        }
+
+        .slider__dots_bright .slick-active & {
+            background-color: $slider-dots-color-bright-active;
+        }
+    }
+
+    &__arrows {
+        @include -cell-base();
+        @include column-absolute(3);
+        
+        color: $brand-darkgray;
+        background-color: $brand-white;
+
+        pointer-events: all;
+    }
+}

@@ -1,0 +1,32 @@
+.news-and-projects {
+    @include content-min();
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(6, false);
+    }
+
+    @media screen and (min-width: breakpoint(lg)) {
+        @include column-absolute(9, false);
+    }
+
+    // Стили слайдера, который вложен в контейнер
+    // Нужно ограничить именно так, потому что слайдер есть на многих страницах,
+    // а данный контейнер с особым стилем - только на одной
+    .slider_type_entries {
+        .slider__slide {
+            @include content-min();
+
+            @media screen and (min-width: breakpoint(sm)) {
+                @include column-absolute(6, false);
+            }
+
+            @media screen and (min-width: breakpoint(lg)) {
+                @include column-absolute(9, false);
+            }
+
+            @media screen and (min-width: breakpoint(xl)) {
+                @include column-absolute(3, false);
+            }
+        }
+    }
+}

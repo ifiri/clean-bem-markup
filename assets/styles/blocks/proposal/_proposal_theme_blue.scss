@@ -1,0 +1,7 @@
+.proposal_theme_blue {
+    @include color-theme-blue([hover, focus]);
+
+    &:hover {
+        color: get-color-theme-property-for(blue, color);
+    }
+}

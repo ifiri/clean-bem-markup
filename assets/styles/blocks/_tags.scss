@@ -1,0 +1,19 @@
+// Блок с тэгами к записи
+.tags {
+    color: $tag-label-color;
+    font-size: em(14px, 14px);
+
+    &__label {
+        margin-right: em(20px, 14px);
+
+        vertical-align: middle;
+    }
+
+    &__tag {
+        @include tag();
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

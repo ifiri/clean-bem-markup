@@ -1,0 +1,47 @@
+@mixin accordion {
+    @include -accordion-base();
+
+    .accordion__trigger {
+        @include -accordion-trigger();
+
+        &[data-accordion-open] {
+            @include -accordion-trigger-open();
+        }
+    }
+
+    .accordion__content {
+        @include -accordion-content();
+    }
+}
+
+@mixin -accordion-base() {
+    display: block;
+}
+
+@mixin -accordion-trigger() {
+    @include content-before(absolute, inline-block);
+
+    position: relative;
+
+    &::before {
+        @include transition(transform);
+        @include triangle(rem(8px) rem(6px), transparent, right);
+        border-left-color: inherit;
+
+        transform-origin: 3px 50%;
+
+        right: 0px;
+        top: 50%;
+        margin-top: rem(-4px);
+    }
+}
+
+@mixin -accordion-trigger-open() {
+    &::before {
+        transform: rotate(90deg);
+    }
+}
+
+@mixin -accordion-content() {
+    display: none;
+}

@@ -1,0 +1,47 @@
+.advantage {
+    @include -cell-base();
+    @include content-min();
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(3, false);
+
+        float: left;
+    }
+
+    &__icon-wrapper {
+        width: rem(80px);
+        height: rem(80px);
+        margin-bottom: rem(40px);
+
+        border: 8px solid $advantage-icon-color;
+
+        display: inline-flex;
+
+        color: $advantage-icon-color;        
+    }
+
+    &__icon {
+        max-height: 100%;
+        margin: auto;
+
+        font-size: 2em;
+    }
+
+    &__title {
+        display: block;
+
+        font-size: rem(36px);
+        letter-spacing: rem(2px);
+        line-height: 1;
+        
+        color: $advantage-title-color;
+    }
+
+    &__subtitle {
+        display: block;
+        
+        font-size: rem(14px);
+        
+        color: $advantage-subtitle-color;
+    }
+}

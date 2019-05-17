@@ -1,0 +1,34 @@
+// Блок иконок социальных сетей и сервисов
+.socials {
+    font-size: rem(14px);
+    color: $socials-color;
+
+    &__label {
+        margin-right: rem(20px);
+        display: inline-block;
+
+        font-size: rem(14px);
+        font-weight: normal;
+    }
+
+    &__icons {
+        display: inline-block;
+    }
+
+    &__icon {
+        @include clear-text-decoration();
+
+        margin-right: rem(10px);
+        display: inline-block;
+        
+        color: inherit;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            color: $socials-icon-color-hover;
+        }
+    }
+}

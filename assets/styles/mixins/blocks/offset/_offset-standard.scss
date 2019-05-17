@@ -1,0 +1,35 @@
+@mixin -offset-standard-direction-right() {
+    position: relative;
+
+    max-width: 100vw;
+    
+    margin-right: half-from(breakpoint(sm)) * -1;
+    margin-left: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: breakpoint(md)) {
+        margin-right: half-from(breakpoint(md)) * -1;
+    }
+
+    @media screen and (min-width: breakpoint(lg)) {
+        margin-right: half-from(breakpoint(lg)) * -1;
+    }
+
+    @media screen and (min-width: breakpoint(xl)) {
+        margin-right: half-from($content-width-max) * -1;
+    }
+}
+
+@mixin -offset-standard-direction-left() {
+    // максимальная ширина такого смещения будет равна content-width
+    // и разнице между ним и максимальным размером контейнера
+    // таким образом, данный блок будет покрывать своими размерами 
+    // максимум один промежуток между контейнерами + его собственная ширина
+    max-width: get-content-width-with-offset();
+
+    // сместим его влево на собственно разницу, 
+    // чтобы он был смещен влево, а не вправo
+    margin-left: get-difference-between($content-width, $content-width-max) * -1;
+}

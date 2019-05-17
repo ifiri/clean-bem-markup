@@ -1,0 +1,20 @@
+.advantages {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        display: block;
+
+        @include clearfix();
+    }
+
+    // Делаем так для того, чтобы клетки с фоном чередовались с клетками без фона
+    .advantage:nth-child(3n+3) {
+        order: 10;
+
+        @media screen and (min-width: breakpoint(lg)) {
+            order: 0;
+        }
+    }
+}

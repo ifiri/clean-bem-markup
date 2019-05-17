@@ -1,0 +1,72 @@
+.instagram-spot {
+    @include column-absolute(6, false);
+
+    min-height: $cell-height;
+
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        flex-direction: row;
+
+        &__pointer, 
+        &__image {
+            width: 50%;
+        }
+    }
+
+    @media screen and (min-width: breakpoint(lg)) {
+        @include column-absolute(3, false);
+
+        min-height: $cell-height * 2;
+    
+        flex-direction: column;
+
+        &__pointer {
+            @include -pointer-to-down(get-color-theme-property-for(ocean, background-color));
+        }
+
+        &__pointer, 
+        &__image {
+            width: 100%;
+        }
+    }
+
+    &__pointer, 
+    &__image {
+        position: relative;
+        width: 100%;
+    }
+
+    &__pointer {
+        @include -cell-iconic-base();
+        @include -pointer-to-down(
+            get-color-theme-property-for(ocean, background-color)
+        );
+
+        @include color-theme-ocean();
+        @include content-before();
+
+        z-index: 15;
+
+        @media screen and (min-width: breakpoint(sm)) {
+            @include -pointer-to-right(get-color-theme-property-for(ocean, background-color));
+        }
+    }
+
+    &__image {
+        @include -cell-base();
+    
+        padding: 0;
+
+        width: 100%;
+    }
+
+    &__icon {
+        @include -cell-iconic-icon();
+    }
+
+    &__title {
+        @include -cell-iconic-title();
+    }
+}

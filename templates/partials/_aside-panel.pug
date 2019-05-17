@@ -1,0 +1,85 @@
+div.aside-panel(id="aside-panel")
+    a.aside-panel__close(href="#", data-dismiss="aside-panel")
+        svg.icon.icon_close(title="Close Menu")
+            use(xlink:href="#icon-close")
+
+    h3.aside-panel__title
+        | Navigation
+
+    nav.menu.menu_type_aside
+        ul.menu__list
+            li.menu__item
+                a.menu__link(href="/")
+                    | Home
+            
+            li.menu__item.menu__item_ancestor(data-accordion)
+                a.menu__link(href="#", data-accordion-trigger)
+                    | Services
+
+                ul.menu__list(data-accordion-content)
+                    li.menu__item
+                        a.menu__link(href="#")
+                            | General contracting
+
+                    li.menu__item
+                        a.menu__link(href="#")
+                            | Project design and engineering
+
+                    li.menu__item
+                        a.menu__link(href="#")
+                            | Capital improvements
+            
+            li.menu__item
+                a.menu__link(href="#")
+                    | Our Works
+            
+            li.menu__item
+                a.menu__link(href="#")
+                    | News & Events
+            
+            li.menu__item
+                a.menu__link(href="#")
+                    | Work with us
+
+            li.menu__item
+                a.menu__link(href="#")
+                    | F.A.Q
+
+            li.menu__item
+                a.menu__link(href="#")
+                    | Contact us
+
+            li.menu__item
+                a.menu__link(href="#")
+                    | Shop
+
+
+    div.inline-contacts
+        div.inline-contacts__item.inline-contacts__item_location
+            svg.icon.icon_map-marker.inline-contacts__icon
+                use(xlink:href="#icon-map-marker")
+
+            p
+                | Stylemixthemes USA, Callifornia 20, 
+                br
+                | First Avenue, 2365 Callifornia,
+
+        div.inline-contacts__item
+            | 1 888 111 68 68
+
+
+        div.inline-contacts__item
+            | 6:00 - 18:00 sunday closed
+
+        div.inline-contacts__item
+            a(href="mailto:info@stylemixthemes.com") info@stylemixthemes.com
+
+
+    form.form.form_type_search
+        label.form__field-container
+            span.form__label Search
+            input.input.form__field(type="text")
+
+        button.form__submit(type="submit")
+            svg.icon.icon_search.form__icon(title="Search")
+                use(xlink:href="#icon-search")

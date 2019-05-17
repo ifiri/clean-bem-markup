@@ -1,0 +1,22 @@
+.contentbox {
+    @include -cell-base();
+    @include content-min();
+
+    &__header {
+        @include -cell-header();
+    }
+
+    &__title {
+        @include -cell-title();
+    }
+
+    &__content {
+        @include -cell-content();
+    }
+
+    &__btn {
+        @include -cell-button();
+        @include -button-size-large();
+        @include color-theme-darkestgray();
+    }
+}

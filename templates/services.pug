@@ -1,0 +1,128 @@
+- var title = 'Our Services';
+doctype html
+html
+    include partials/_head.pug
+
+    body.page.page_sidebar
+        | <!-- inject:svg --><!-- endinject -->
+
+        include partials/_header_type_titled.pug
+
+        include partials/_aside-panel.pug
+
+        div.content
+            main.main
+                section.container.countings.services-grid
+                    article.services-grid__item.service-card.service-card_tall
+                        div.service-card__contentbox
+                            header.service-card__header
+                                h3.service-card__title
+                                    | General <br> Contracting
+                            p.service-card__content
+                                | This allows the Design and Engineering team to originate drawings, specifications, structural calculations, details and scopes of work that deliver exactly what the client had intended to achieve.
+
+                        div.service-card__imagebox.countings__counting
+                            span.countings__counter
+
+                            img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")
+
+                    article.services-grid__item.service-card.service-card_tall
+                        div.service-card__imagebox.countings__counting
+                            span.countings__counter
+
+                            img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")
+
+                        div.service-card__contentbox
+                            header.service-card__header
+                                h3.service-card__title
+                                    | Project design <br> and engineering
+                            p.service-card__content
+                                | Through Stage-Gate, Design and Engineering methodology, DMCS ensure client-partners realize clearly defined project objective to achieve intended results.
+
+                    article.services-grid__item.service-card.service-card_tall
+                        div.service-card__contentbox
+                            header.service-card__header
+                                h3.service-card__title
+                                    | Capital <br> Improvements
+                            p.service-card__content
+                                | This allows the Design and Engineering team to originate drawings, specifications, structural calculations, details and scopes of work that deliver exactly what the client had intended to achieve.
+
+                        div.service-card__imagebox.countings__counting
+                            span.countings__counter
+                                
+                            img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")
+
+
+                    article.services-grid__item.service-card.service-card_tall
+                        div.service-card__contentbox
+                            header.service-card__header
+                                h3.service-card__title
+                                    | Construction
+                            p.service-card__content
+                                | This allows the Design and Engineering team to originate drawings, specifications, structural calculations, details and scopes of work that deliver exactly what the client had intended to achieve.
+
+                        div.service-card__imagebox.countings__counting
+                            span.countings__counter
+
+                            img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")
+
+
+                    article.services-grid__item.service-card.service-card_tall
+                        div.service-card__imagebox.countings__counting
+                            span.countings__counter
+
+                            img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")
+
+                        div.service-card__contentbox
+                            header.service-card__header
+                                h3.service-card__title
+                                    | Expert <br> Witness
+                            p.service-card__content
+                                | This allows the Design and Engineering team to originate drawings, specifications, structural calculations, details and scopes of work that deliver exactly what the client had intended to achieve.
+
+
+                    article.services-grid__item.service-card.service-card_tall
+                        div.service-card__contentbox
+                            header.service-card__header
+                                h3.service-card__title
+                                    | Procurement
+                            p.service-card__content
+                                | This allows the Design and Engineering team to originate drawings, specifications, structural calculations, details and scopes of work that deliver exactly what the client had intended to achieve.
+
+                        div.service-card__imagebox.countings__counting
+                            span.countings__counter
+
+                            img.image(src="dist/images/content/placeholders/293x293.jpg", alt="")
+                        
+
+            aside.sidebar
+                section.popular-posts
+                    header.popular-posts__header
+                        h2.popular-posts__title Popular Posts
+
+                    div.popular-posts__content
+                        include partials/sliders/_slider-entries.pug
+                
+                a.proposal.proposal_theme_yellow(href="#")
+                    svg.icon.icon_pdf.proposal__icon(title="Download Price")
+                        use(xlink:href="#icon-pdf")
+                    span.proposal__title Download Price
+
+                div.form.form_type_subscribe
+                    header.form__header
+                        h2.form__title Subscribe
+                    
+                    label.form__field
+                        span.form__label E-mail
+                        input.input.form__input(type="text")
+
+                    footer.form__footer
+                        a.form__signup(href="#")
+                            | Sign Up
+
+                a.proposal.proposal_theme_yellow
+                    svg.icon.icon_gears.proposal__icon(title="Work With Us")
+                        use(xlink:href="#icon-gears")
+                    span.proposal__title Work With Us
+
+        include partials/_footer.pug

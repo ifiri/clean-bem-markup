@@ -1,0 +1,137 @@
+- var title = 'Main Page';
+doctype html
+html
+    include partials/_head.pug
+
+    body
+        | <!-- inject:svg --><!-- endinject -->
+
+        include partials/_header_type_untitled.pug
+        
+        include partials/_aside-panel.pug
+
+        include partials/sliders/_slider-promo.pug
+
+
+
+        div.content
+            main.main
+                include partials/sliders/_slider-services.pug
+                
+
+                div.search-line
+                    a.proposal.proposal_theme_yellow(href="#")
+                        svg.icon.icon_pdf.proposal__icon(title="Download Price")
+                            use(xlink:href="#icon-pdf")
+                        span.proposal__title Download Price
+                        
+                    a.proposal.proposal_theme_blue(href="#")
+                        svg.icon.icon_location.proposal__icon(title="Contact Us")
+                            use(xlink:href="#icon-location")
+                        span.proposal__title Contact Us
+
+                    div.search-box
+                        div.search-box__inner
+                            form.form.form_type_search
+                                label.form__field-container
+                                    span.form__label What you're looking for
+                                    input.input.form__field(type="text")
+
+                                button.form__submit(type="submit")
+                                    svg.icon.icon_search.form__icon(title="Search")
+                                        use(xlink:href="#icon-search")
+
+
+
+                div.container
+                    include partials/sliders/_slider-testimonials.pug
+
+                    div.information
+                        article.about-company
+                            header.about-company__header
+                                h2.about-company__title 
+                                    | Your building is in <br> good hands
+
+                            div.about-company__content
+                                p Our mission is to provide the highest level of service for our client-partners from concept through construction.
+
+                                a.btn.about-company__btn(href="#")
+                                    | About Company
+
+                        section.advantages
+                            article.advantage
+                                div.advantage__icon-wrapper
+                                    svg.icon.icon_bolt.advantage__icon
+                                        use(xlink:href="#icon-bolt")
+                                
+                                big.advantage__title
+                                    | 55 000
+                                small.advantage__subtitle
+                                    | Expert Witness
+
+                            article.advantage.advantage_construction
+                                div.advantage__icon-wrapper
+                                    svg.icon.icon_drop.advantage__icon
+                                        use(xlink:href="#icon-drop")
+                                
+                                big.advantage__title
+                                    | 124 600
+                                small.advantage__subtitle
+                                    | Construction
+
+                            article.advantage.advantage_procurement
+                                div.advantage__icon-wrapper
+                                    svg.icon.icon_gear.advantage__icon
+                                        use(xlink:href="#icon-gear")
+                                
+                                big.advantage__title
+                                    | 18 000
+                                small.advantage__subtitle
+                                    | Procurement
+
+                            article.advantage
+                                div.advantage__icon-wrapper
+                                    svg.icon.icon_lamp.advantage__icon
+                                        use(xlink:href="#icon-lamp")
+                                
+                                big.advantage__title
+                                    | 78 150
+                                small.advantage__subtitle
+                                    | Project Managements
+
+
+
+                div.container
+                    div.news-and-projects
+                        section.news
+                            header.news__header
+                                h2.news__title News
+
+                            div.news__content
+                                include partials/sliders/_slider-entries.pug
+                        
+                        include partials/sliders/_slider-projects.pug
+
+
+
+                    div.subscribe-line
+                        a.proposal.proposal_theme_yellow
+                            svg.icon.icon_gears.proposal__icon(title="Work With Us")
+                                use(xlink:href="#icon-gears")
+                            span.proposal__title Work With Us
+
+                        div.form_type_subscribe
+                            header.form__header
+                                h2.form__title Subscribe
+                            
+                            label.form__field
+                                span.form__label E-mail
+                                input.input.form__input(type="text")
+
+                            footer.form__footer
+                                a.form__signup(href="#")
+                                    | Sign Up
+
+
+
+        include partials/_footer.pug

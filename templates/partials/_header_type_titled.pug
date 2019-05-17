@@ -1,0 +1,14 @@
+header.header.header_type_titled
+    .header__navigation
+        .header__logo-area
+            a(href="/")
+                img.logo(src="/dist/images/logo.png", alt="FDM")
+
+        .header__actions-area.icon-links
+            include _header__actions-area.pug
+
+    .header__background
+        .header__background_left
+            .header__title-wrapper
+                h1.header__title
+                    | #{title}

@@ -1,0 +1,47 @@
+.post-preview {
+    position: relative;
+
+    min-height: 0; // IE fix
+
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        @include -cell-title();
+        
+        font-size: rem(18px);
+        font-weight: normal;
+        line-height: 1.2;
+
+        color: $post-preview-title-color;
+    }
+
+    &__header {
+        &::after {
+            display: none;
+        }
+    }
+
+    &__meta {
+        margin-top: auto;
+    }
+
+    &__time,
+    &__comment-count {
+        margin-bottom: rem(10px);
+
+        display: block;
+
+        font-size: rem(14px);
+
+        color: $post-preview-meta-color;
+    }
+
+    &__comment-count {
+        @include clear-text-decoration();
+
+        &:hover {
+            color: $post-preview-meta-color-hover;
+        }
+    }
+}

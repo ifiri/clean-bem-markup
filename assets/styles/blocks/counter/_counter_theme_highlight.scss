@@ -1,0 +1,9 @@
+.counter_theme_highlight {
+    .counter__current {
+        color: $counter-current-color-highlight;
+    }
+
+    .counter__count {
+        color: $counter-count-color-highlight;
+    }
+}

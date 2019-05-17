@@ -1,0 +1,51 @@
+.news {
+    @include -cell-base();
+    @include content-min();
+
+    @include color-theme-blue();
+
+    position: relative;
+    margin-top: $cell-height * -1;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        @include column-absolute(6, false);
+    }
+
+    @media screen and (min-width: breakpoint(lg)) {
+        @include column-absolute(9, false);
+    }
+
+    @media screen and (min-width: breakpoint(xl)) {
+        @include column-absolute(3, false);
+    }
+
+    &__header {
+        @include -cell-header();
+        @include cell-padding-top();
+        @include column-gap();
+
+        color: inherit;
+    }
+
+    &__title {
+        @include -cell-title();
+
+        min-height: 2em;
+    }
+
+    &__content {
+        @include -cell-content();
+
+        padding-bottom: rem(50px);
+
+        flex-grow: 10;
+    }
+
+    @media screen and (min-width: breakpoint(xs)) and (max-width: breakpoint(xl)) {
+        margin-top: 0;
+    }
+}

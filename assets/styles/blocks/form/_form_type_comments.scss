@@ -1,0 +1,94 @@
+.form_type_comments {
+    padding: rem(30px);
+
+    background-color: $comments-form-background-color;
+
+    @media screen and (min-width: breakpoint(sm)) {
+        padding-top: rem(55px);
+        padding-bottom: rem(60px);
+    }
+
+    .form__body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .form__field {
+        @include transition(background-color);
+
+        width: 100%;
+        min-height: rem(46px);
+        padding: em(11px, 14px) em(12px, 14px); // pixel perfect
+
+        border: 1px solid $comments-form-fields-background-color;
+
+        font-size: rem(14px);
+        color: $brand-white;
+        background-color: $comments-form-fields-background-color;
+
+        &:focus {
+            color: $comments-form-fields-text-color-hover;
+            background-color: $comments-form-fields-background-color-hover;
+        }
+    }
+
+    .form__submit {
+        @include -button-size-large();
+        @include color-theme-white();
+    }
+
+    .form__label {
+        position: absolute;
+        top: em(12px, 14px);
+        left: em(13px, 14px);
+
+        font-size: rem(14px);
+
+        // Здесь нужно подогнать лейбл под плейсхолдер
+        color: $placeholder-text-color;        
+
+        pointer-events: none;
+    }
+
+    .form__field-container {
+        margin-bottom: rem(30px);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .form__title {
+        font-size: rem(28px);
+        font-weight: normal;
+
+        color: $comments-form-title-color;
+    }
+
+    .form__subtitle {
+        font-size: rem(12px);
+        text-transform: uppercase;
+
+        color: $comments-form-subtitle-color;
+    }
+
+    .form__userdata {
+        @include column(12, false);
+
+        padding-bottom: rem(30px);
+
+        @media screen and (min-width: breakpoint(sm)) {
+            @include column(4, false);
+
+            padding-bottom: 0;
+        }
+    }
+
+    .form__usermessage {
+        @include column(12, false);
+
+        @media screen and (min-width: breakpoint(sm)) {
+            @include column(8, false);
+        }
+    }
+}

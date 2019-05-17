@@ -1,0 +1,21 @@
+.post-navigation-links {
+    @include -arrows-base();
+    @include color-theme-darkestgray([hover, focus]);
+    
+    // Hide on smartphones
+    display: none;
+
+    // Display on tablets and desktops
+    @media screen and (min-width: breakpoint(lg)) {
+        display: flex;
+    }
+
+    &__next, 
+    &__prev {
+        @include -arrows-arrow();
+    }
+
+    &__prev {
+        @include -arrows-arrow-prev();
+    }
+}

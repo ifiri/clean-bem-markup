@@ -1,0 +1,20 @@
+.icon_play {
+    position: relative;
+
+    // this is NOT svg, so we need restrict all transformations
+    width: rem(72px) !important;
+    height: rem(72px) !important;
+    margin-bottom: rem(18px);
+
+    border: rem(5px) solid currentColor;
+    border-radius: 50%;
+
+    &::before {
+        content: "";
+
+        margin: auto;
+
+        @include position(absolute, 0 0 0 6px);
+        @include triangle(rem(28px) rem(24px), currentColor, right);
+    }
+}

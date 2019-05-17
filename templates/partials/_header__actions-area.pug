@@ -1,0 +1,50 @@
+div.icon-links__item
+    a.icon-links__link(href="#")
+        svg.icon.icon_facebook(title="Facebook")
+            use(xlink:href="#icon-facebook")
+
+div.icon-links__item
+    a.icon-links__link(href="#")
+        svg.icon.icon_twitter(title="Twitter")
+            use(xlink:href="#icon-twitter")
+
+div.icon-links__item
+    a.icon-links__link.cart-action-icon(href="#", id="mini-cart-trigger" data-trigger="mini-cart")
+        svg.icon.icon_basket(title="basket")
+            use(xlink:href="#icon-basket")
+
+        span.icon-links__tooltip 99
+
+    div.cart.cart_type_mini(id="mini-cart")
+        span.cart__pointer
+        div.cart__item.product-card
+            div.product-card__imagebox
+                img.image(src="dist/images/content/placeholders/50x50.jpg")
+
+            div.product-card__contentbox
+                h5.product-card__title Drill for Real
+                span.product-card__price 1 x $59.00
+
+        div.cart__item.product-card
+            div.product-card__imagebox
+                img.image(src="dist/images/content/placeholders/50x50.jpg")
+
+            div.product-card__contentbox
+                h5.product-card__title Drill Mrill Brill
+                    span.product-card__amount (2)
+                span.product-card__price 1 x $59.00
+
+        footer.cart__footer
+            div.cart__total
+                span.cart__total-label Subtotal:
+                span.cart__total-value $259.00
+
+            div.cart__actions
+                a.btn.cart__checkout(href="#") Checkout
+
+                a.btn.cart__view-card(href="#") View Card
+
+div.icon-links__item
+    a.icon-links__link(href="#", id="aside-panel-trigger", data-trigger="aside-panel")
+        svg.icon.icon_hamburger(title="Open Menu")
+            use(xlink:href="#icon-hamburger")

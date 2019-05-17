@@ -1,0 +1,37 @@
+.service-card_wide {
+    @include -cell-group-size-2w();
+
+    .service-card__imagebox,
+    .service-card__contentbox {
+        @include -cell-group-element-for-2w();
+    }
+
+    // В широкой разметке контентная ячейка указывает вправо, если она первая
+    // и влево, если она последняя
+    .service-card__contentbox {
+        @include -pointer-base();
+
+        // На минимальных разрешениях всегда указывает вверх и идет последней
+        &:first-child {
+            @include -pointer-to-up();
+
+            order: 1;
+
+            // На всех прочих - вправо и идет первой
+            @media screen and (min-width: breakpoint(sm)) {
+                @include -pointer-to-right();
+
+                order: 0;
+            }
+        }
+
+        &:last-child {
+            @include -pointer-to-up();
+
+            // или влево, если изначально была последней
+            @media screen and (min-width: breakpoint(sm)) {
+                @include -pointer-to-left();
+            }
+        }
+    }
+}

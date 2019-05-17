@@ -1,0 +1,31 @@
+.service-card {
+    position: relative;
+
+    &__imagebox,
+    &__contentbox {
+        position: relative;
+        width: 50%;
+    }
+
+    &__imagebox {
+        padding: 0;
+    }
+
+    &__contentbox {
+        @include -cell-base();
+
+        flex-grow: 1;
+    }
+
+    &__header {
+        @include -cell-header();
+    }
+
+    &__title {
+        @include -cell-title();
+    }
+
+    &__content {
+        @include -cell-content();
+    }
+}

@@ -1,0 +1,8 @@
+// Лэйаут-блок, используется как контейнер для отзывов на главной
+.testimonials {
+    @include column(12, false);
+
+    @media screen and (min-width: breakpoint(xl)) {
+        @include column(6, false);
+    }
+}
